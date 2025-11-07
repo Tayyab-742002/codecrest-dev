@@ -1,6 +1,5 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { Search, Globe, Sun, Menu } from "lucide-react";
 import TabMenu from "./TabMenu";
 import MobileMenu from "./mobile-menu";
@@ -14,23 +13,85 @@ export default function Navigation() {
     null
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
-  // Get mega menu data for the hovered tab
-  const activeMegaMenuData = hoveredTab
-    ? NAVIGATION_ITEMS.find(
-        (item: NavItem) => item.id === hoveredTab.id.toString()
-      )
-    : null;
+  // Use Intersection Observer with CSS variables - minimal JS, CSS handles styling
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    const nav = navRef.current;
+    if (!sentinel || !nav) return;
+
+    // Update CSS variable instead of React state - CSS handles all styling
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (nav) {
+          // Update CSS variable on the navigation element
+          nav.style.setProperty(
+            "--is-scrolled",
+            entry.isIntersecting ? "0" : "1"
+          );
+        }
+      },
+      {
+        threshold: [1],
+        rootMargin: "-50px 0px 0px 0px",
+      }
+    );
+
+    observer.observe(sentinel);
+
+    // Set initial state
+    nav.style.setProperty("--is-scrolled", "0");
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Memoize mega menu data lookup to prevent recalculation
+  const activeMegaMenuData = useMemo(() => {
+    return hoveredTab
+      ? NAVIGATION_ITEMS.find(
+          (item: NavItem) => item.id === hoveredTab.id.toString()
+        )
+      : null;
+  }, [hoveredTab]);
+
+  // CSS handles all styling based on --is-scrolled variable - no React state needed
 
   return (
     <>
-      <header className="bg-white border-b border-slate-300 sticky top-0 z-40">
+      {/* Scroll sentinel - used by Intersection Observer for scroll detection */}
+      <div
+        ref={sentinelRef}
+        style={{
+          position: "absolute",
+          top: "50px",
+          left: 0,
+          width: "1px",
+          height: "1px",
+          pointerEvents: "none",
+          visibility: "hidden",
+        }}
+        aria-hidden="true"
+      />
+      <header
+        ref={navRef}
+        className="nav-header"
+        style={{
+          "--is-scrolled": "0",
+        } as React.CSSProperties & { "--is-scrolled": string }}
+      >
         {/* Main Navigation Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="shrink-0">
-              <Link href="/" className="text-2xl font-bold text-slate-900">
+              <Link
+                href="/"
+                className="nav-logo text-2xl font-bold"
+              >
                 Logo
               </Link>
             </div>
@@ -47,33 +108,39 @@ export default function Navigation() {
                   megaMenuData={activeMegaMenuData}
                 />
               </div>
+
               {/* Desktop Action Buttons */}
               <button
-                className="hidden md:flex h-10 w-10 items-center justify-center rounded-lg hover:bg-slate-100 text-slate-600 hover:text-slate-900 transition-colors"
+                className="nav-icon-btn hidden md:flex h-10 w-10 items-center justify-center rounded-lg"
                 aria-label="Search"
               >
                 <Search className="h-5 w-5" />
               </button>
+
               <button
-                className="hidden md:flex h-10 w-10 items-center justify-center rounded-lg hover:bg-slate-100 text-slate-600 hover:text-slate-900 transition-colors"
+                className="nav-icon-btn hidden md:flex h-10 w-10 items-center justify-center rounded-lg"
                 aria-label="Language"
               >
                 <Globe className="h-5 w-5" />
               </button>
+
               <button
-                className="hidden md:flex h-10 w-10 items-center justify-center rounded-lg hover:bg-slate-100 text-slate-600 hover:text-slate-900 transition-colors"
+                className="nav-icon-btn hidden md:flex h-10 w-10 items-center justify-center rounded-lg"
                 aria-label="Theme"
               >
                 <Sun className="h-5 w-5" />
               </button>
-              <button className="hidden md:inline-flex items-center justify-center px-5 h-10 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-full transition-colors duration-200">
+
+              <button
+                className="nav-cta-btn hidden md:inline-flex items-center justify-center px-5 h-10 text-sm font-medium rounded-full"
+              >
                 Contact
               </button>
 
-              {/* Mobile Menu Button - Only visible on mobile */}
+              {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="md:hidden h-10 w-10 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-600 hover:text-slate-900 transition-colors"
+                className="nav-mobile-btn md:hidden h-10 w-10 flex items-center justify-center rounded-lg"
                 aria-label="Open menu"
                 aria-expanded={isMobileMenuOpen}
               >
@@ -83,7 +150,7 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Menu - Only renders on mobile */}
+        {/* Mobile Menu */}
         <MobileMenu
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
