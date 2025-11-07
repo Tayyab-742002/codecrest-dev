@@ -2,12 +2,11 @@ import type { TabItem, NavItem } from "../Navigation/types";
 
 export const TAB_ITEMS: TabItem[] = [
   { id: 1, title: "Overview" },
-  { id: 2, title: "Integrations" },
-  { id: 3, title: "Activity" },
-  { id: 4, title: "Domains" },
-  { id: 5, title: "Usage" },
-  { id: 6, title: "AI" },
-  { id: 7, title: "Settings" },
+  { id: 2, title: "Services" },
+  { id: 3, title: "Projects" },
+  { id: 4, title: "Blog" },
+  { id: 5, title: "Team" },
+  { id: 6, title: "Contact" },
 ];
 
 export const NAVIGATION_ITEMS: NavItem[] = [
@@ -51,114 +50,114 @@ export const NAVIGATION_ITEMS: NavItem[] = [
   },
   {
     id: "2",
-    label: "Integrations",
+    label: "Services",
     hero: {
-      title: "Connect Your Tools",
+      title: "Our Services",
       description:
-        "Seamlessly integrate with your favorite tools and platforms to streamline your workflow.",
+        "We offer a wide range of services to help you grow your business.",
     },
     columns: [
       {
         title: "Popular",
         links: [
-          { label: "Salesforce", href: "#" },
-          { label: "HubSpot", href: "#" },
-          { label: "Slack", href: "#" },
-          { label: "Microsoft Teams", href: "#" },
+          { label: "Web Development", href: "#" },
+          { label: "Mobile Development", href: "#" },
+          { label: "UI/UX Design", href: "#" },
+          { label: "SEO Optimization", href: "#" },
         ],
       },
       {
         title: "Development",
         links: [
-          { label: "GitHub", href: "#" },
-          { label: "GitLab", href: "#" },
-          { label: "Jira", href: "#" },
-          { label: "Jenkins", href: "#" },
+          { label: "Backend Development", href: "#" },
+          { label: "Frontend Development", href: "#" },
+          { label: "Database Management", href: "#" },
+          { label: "API Development", href: "#" },
         ],
       },
       {
         title: "Marketing",
         links: [
-          { label: "Google Analytics", href: "#" },
-          { label: "Mailchimp", href: "#" },
-          { label: "Zapier", href: "#" },
-          { label: "Segment", href: "#" },
+          { label: "Digital Marketing", href: "#" },
+          { label: "Social Media Management", href: "#" },
+          { label: "Content Creation", href: "#" },
+          { label: "Email Marketing", href: "#" },
         ],
       },
     ],
   },
   {
     id: "3",
-    label: "Activity",
+    label: "Projects",
     hero: {
-      title: "Activity Feed",
+      title: "Our Projects",
       description:
-        "Stay updated with real-time activity logs and team collaboration insights.",
+        "We have worked on a wide range of projects to help our clients grow their business.",
     },
     columns: [
       {
         title: "Recent",
         links: [
-          { label: "Recent Changes", href: "#" },
-          { label: "Team Updates", href: "#" },
-          { label: "System Events", href: "#" },
-          { label: "Notifications", href: "#" },
+          { label: "Project 1", href: "#" },
+          { label: "Project 2", href: "#" },
+          { label: "Project 3", href: "#" },
+          { label: "Project 4", href: "#" },
         ],
       },
       {
         title: "Monitoring",
         links: [
-          { label: "Audit Logs", href: "#" },
-          { label: "User Sessions", href: "#" },
-          { label: "API Requests", href: "#" },
-          { label: "Error Tracking", href: "#" },
+          { label: "Project 5", href: "#" },
+          { label: "Project 6", href: "#" },
+          { label: "Project 7", href: "#" },
+          { label: "Project 8", href: "#" },
         ],
       },
       {
         title: "Reports",
         links: [
-          { label: "Activity Reports", href: "#" },
-          { label: "Usage Statistics", href: "#" },
-          { label: "Export Data", href: "#" },
-          { label: "Scheduled Reports", href: "#" },
+          { label: "Project 9", href: "#" },
+          { label: "Project 10", href: "#" },
+          { label: "Project 11", href: "#" },
+          { label: "Project 12", href: "#" },
         ],
       },
     ],
   },
   {
     id: "4",
-    label: "Domains",
+    label: "Blog",
     hero: {
-      title: "Domain Management",
+      title: "Our Blog",
       description:
-        "Manage your domains, SSL certificates, and DNS settings all in one place.",
+        "We have a wide range of blog posts to help you learn more about our services and products.",
     },
     columns: [
       {
         title: "Management",
         links: [
-          { label: "Domain List", href: "#" },
-          { label: "Add New Domain", href: "#" },
-          { label: "Transfer Domain", href: "#" },
-          { label: "Domain Settings", href: "#" },
+          { label: "Blog Post 1", href: "#" },
+          { label: "Blog Post 2", href: "#" },
+          { label: "Blog Post 3", href: "#" },
+          { label: "Blog Post 4", href: "#" },
         ],
       },
       {
         title: "Security",
         links: [
-          { label: "SSL Certificates", href: "#" },
-          { label: "DNS Security", href: "#" },
-          { label: "Domain Privacy", href: "#" },
-          { label: "Firewall Rules", href: "#" },
+          { label: "Blog Post 5", href: "#" },
+          { label: "Blog Post 6", href: "#" },
+          { label: "Blog Post 7", href: "#" },
+          { label: "Blog Post 8", href: "#" },
         ],
       },
       {
         title: "Configuration",
         links: [
-          { label: "DNS Records", href: "#" },
-          { label: "Email Setup", href: "#" },
-          { label: "Subdomains", href: "#" },
-          { label: "Redirects", href: "#" },
+          { label: "Blog Post 9", href: "#" },
+          { label: "Blog Post 10", href: "#" },
+          { label: "Blog Post 11", href: "#" },
+          { label: "Blog Post 12", href: "#" },
         ],
       },
     ],

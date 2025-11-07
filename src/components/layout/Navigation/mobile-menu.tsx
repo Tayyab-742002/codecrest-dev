@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Globe, Moon, Sun, X } from "lucide-react";
+import { Search, Globe, X } from "lucide-react";
 import type { NavItem } from "./types";
 
 interface MobileMenuProps {
@@ -20,7 +20,7 @@ export default function MobileMenu({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 md:hidden">
+    <div className="fixed inset-0 z-[60] md:hidden">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/50 backdrop-blur-sm"
@@ -102,7 +102,7 @@ export default function MobileMenu({
                             <li key={linkIdx}>
                               <a
                                 href={link.href}
-                                className="block text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 py-2.5 px-3 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-200 min-h-[48px] flex items-center"
+                                className="flex items-center text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 py-2.5 px-3 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all duration-200 min-h-[48px]"
                                 onClick={onClose}
                               >
                                 {link.label}
