@@ -12,20 +12,19 @@ type Slide = {
 const slides: Slide[] = [
   {
     video: "/background-video-2.mp4",
-    text: ["ESSENCE BEYOND", "PERCEPTION"],
+    text: ["BUILDING TOMORROW", "TODAY"],
   },
   {
-    video: "/background-video.mp4",
-    text: ["ESSENCE BEYOND", "PERCEPTION"],
+    video: "/background-video-3.mp4",
+    text: ["CODE MEETS", "CREATIVITY"],
   },
-
   {
     img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1640",
-    text: ["SILENCE SPEAKS", "THROUGH FORM"],
+    text: ["YOUR VISION", "OUR EXPERTISE"],
   },
   {
     img: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1740",
-    text: ["ESSENCE BEYOND", "PERCEPTION"],
+    text: ["SHIPPING EXCELLENCE", "EVERY DAY"],
   },
 ];
 
@@ -200,11 +199,33 @@ export default function Slideshow() {
               {slide.text.map((t, j) => (
                 <h2
                   key={j}
-                  className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-tight"
+                  className={`text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight ${
+                    j === 0 ? "text-white" : ""
+                  }`}
                   style={{
-                    textShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
-                    fontFamily:
-                      '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+                    ...(j === 0
+                      ? {
+                          color: "#FFFFFF",
+                          textShadow:
+                            "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.2)",
+                          filter:
+                            "drop-shadow(0 0 4px rgba(255, 255, 255, 0.3))",
+                          fontFamily:
+                            '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif',
+                          fontWeight: 900,
+                          letterSpacing: "-0.02em",
+                        }
+                      : {
+                          color: "#FC2947",
+                          textShadow:
+                            "0 0 15px rgba(252, 41, 71, 0.4), 0 0 30px rgba(252, 41, 71, 0.2), 0 1px 5px rgba(0, 0, 0, 0.15)",
+                          filter: "drop-shadow(0 0 6px rgba(252, 41, 71, 0.3))",
+                          fontFamily:
+                            '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif',
+                          fontWeight: 300,
+                          letterSpacing: "0.05em",
+                          fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
+                        }),
                   }}
                 >
                   {t}

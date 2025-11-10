@@ -79,7 +79,7 @@ export function AboutScrollSection({
               className={`${styles.headline} flex flex-col items-center gap-6 text-center sm:gap-8`}
             >
               <span
-                className={`${styles.eyebrow} text-[clamp(0.75rem,2vw,1.125rem)] font-bold uppercase tracking-[0.5em] sm:tracking-[0.6em]`}
+                className={`${styles.eyebrow} text-[clamp(1rem,3vw,1.75rem)] font-bold uppercase tracking-[0.5em] sm:tracking-[0.6em]`}
               >
                 {eyebrow}
               </span>
@@ -87,7 +87,7 @@ export function AboutScrollSection({
                 {headingPrefix} {highlightWords[0]}
               </h2>
               <span
-                className={`${styles.headingPrefix} text-[clamp(1.125rem,3.5vw,2rem)] font-bold leading-tight sm:text-[clamp(1.5rem,4vw,2.5rem)]`}
+                className={`${styles.headingPrefix} text-[clamp(1.75rem,5vw,3.5rem)] font-bold leading-tight sm:text-[clamp(2.25rem,6vw,4.5rem)]`}
               >
                 {headingPrefix}
               </span>

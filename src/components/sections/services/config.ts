@@ -5,7 +5,7 @@ export const SLIDES = [
     description:
       "Building beautiful, responsive, and performant user interfaces that users love",
     imageUrl:
-      "https://images.unsplash.com/photo-1535868463750-c78d9543614f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1752",
+      "https://images.unsplash.com/photo-1572509018340-1fc13b5df491?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1740",
 
     textColor: "#ffffff", // White text
   },
@@ -15,7 +15,7 @@ export const SLIDES = [
     description:
       "Scalable server solutions and APIs that power your applications",
     imageUrl:
-      "https://images.unsplash.com/photo-1705526828940-3e5e7f113e2c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1740",
+      "https://images.unsplash.com/photo-1572666341285-c8cb9790ca50?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2670",
 
     textColor: "#ffffff", // White text
   },
@@ -42,4 +42,6 @@ export const SLIDES = [
 ];
 
 // Extract colors array for the HoverSlider component
-export const SERVICE_COLORS = SLIDES.map((slide) => slide.color);
+export const SERVICE_COLORS = SLIDES.map((slide) => slide.color).filter(
+  (color): color is string => color !== undefined
+);

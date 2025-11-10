@@ -141,7 +141,11 @@
       stroke-dashoffset: -60;
     }
   }
-}
+  --animate-shadanim: shadanim 15s linear infinite
+;
+  @keyframes shadanim {
+  0% {
+    background-position: 100% -100%;}}}
 
 :root {
   --radius: 0.625rem;
@@ -224,5 +228,14 @@
   }
   body {
     overflow-x: hidden;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

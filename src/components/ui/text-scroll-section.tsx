@@ -130,11 +130,11 @@ export function TextScrollHero({
               style={{
                 letterSpacing: shouldAnimate ? `${letterSpacing}em` : "normal",
                 background:
-                  "linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #334155 60%, #475569 100%)",
+                  "linear-gradient(135deg, #8B4513 0%, #A0522D 30%, #CD853F 60%, #D2691E 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
-                textShadow: "0 0 40px rgba(0,0,0,0.1)",
+                textShadow: "0 0 40px rgba(139, 69, 19, 0.2)",
               }}
             >
               Our Services
@@ -150,9 +150,9 @@ export function TextScrollHero({
                 maxWidth: "600px",
               }}
             >
-              <div className="absolute inset-0 bg-linear-to-r from-transparent via-slate-900 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-[#8B4513] to-transparent" />
               <motion.div
-                className="absolute inset-0 bg-linear-to-r from-transparent via-slate-400 to-transparent"
+                className="absolute inset-0 bg-linear-to-r from-transparent via-[#CD853F] to-transparent"
                 animate={{
                   x: ["-100%", "100%"],
                 }}
