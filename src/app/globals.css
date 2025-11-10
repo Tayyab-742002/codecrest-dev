@@ -41,6 +41,106 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes charAppear {
+    0% {
+      transform: translateY(50%);
+      opacity: 0;
+      filter: blur(20px);
+    }
+    20% {
+      transform: translateY(70%);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-15%);
+      opacity: 1;
+      filter: blur(0);
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes charDisappear {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-70%);
+      opacity: 0;
+      filter: blur(3px);
+    }
+  }
+  @keyframes arrow {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(60px);
+      opacity: 0;
+    }
+    51% {
+      transform: translateX(-200px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(-128px);
+      opacity: 1;
+    }
+  }
+  @keyframes swingArrow {
+    50% {
+      transform: translateX(5px) scale(0.9);
+    }
+  }
+  @keyframes rotateArrowLine {
+    50% {
+      transform: rotate(30deg);
+    }
+    80% {
+      transform: rotate(55deg);
+    }
+  }
+  @keyframes rotateArrowLine2 {
+    50% {
+      transform: rotate(330deg);
+    }
+    80% {
+      transform: rotate(300deg);
+    }
+  }
+  @keyframes resetArrow {
+    0% {
+      transform: translateX(-128px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes path {
+    from {
+      stroke: white;
+    }
+    to {
+      stroke-dashoffset: -480;
+      stroke: #f9c6fe;
+    }
+  }
+  @keyframes splash {
+    to {
+      stroke-dasharray: 2 60;
+      stroke-dashoffset: -60;
+    }
+  }
 }
 
 :root {
@@ -125,90 +225,4 @@
   body {
     overflow-x: hidden;
   }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-8px) translateZ(0);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) translateZ(0);
-  }
-}
-
-/* Navigation CSS-only scroll detection styling */
-.nav-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 40;
-  --is-scrolled: 0;
-  transition: background-color 150ms ease-out, border-color 150ms ease-out, box-shadow 150ms ease-out;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform: translateZ(0);
-  isolation: isolate;
-}
-
-/* When scrolled (--is-scrolled = 1) */
-.nav-header {
-  background-color: color-mix(in srgb, white calc(var(--is-scrolled) * 100%), transparent);
-  border-bottom: 1px solid color-mix(in srgb, rgb(226 232 240 / 0.5) calc(var(--is-scrolled) * 100%), transparent);
-  box-shadow: 0 1px 2px 0 color-mix(in srgb, rgb(0 0 0 / 0.05) calc(var(--is-scrolled) * 100%), transparent);
-}
-
-.nav-logo {
-  transition: color 150ms ease-out;
-  color: color-mix(in srgb, rgb(15 23 42) calc(var(--is-scrolled) * 100%), white);
-}
-
-.nav-icon-btn {
-  transition: background-color 150ms ease-out, color 150ms ease-out;
-  background-color: color-mix(in srgb, rgb(241 245 249) calc(var(--is-scrolled) * 100%), transparent);
-  color: color-mix(in srgb, rgb(71 85 105) calc(var(--is-scrolled) * 100%), white);
-}
-
-.nav-icon-btn:hover {
-  background-color: color-mix(in srgb, rgb(241 245 249) calc(var(--is-scrolled) * 100%), rgb(255 255 255 / 0.2));
-  color: color-mix(in srgb, rgb(15 23 42) calc(var(--is-scrolled) * 100%), white);
-}
-
-.nav-cta-btn {
-  transition: background-color 150ms ease-out, color 150ms ease-out;
-  background-color: color-mix(in srgb, rgb(37 99 235) calc(var(--is-scrolled) * 100%), white);
-  color: color-mix(in srgb, white calc(var(--is-scrolled) * 100%), rgb(15 23 42));
-}
-
-.nav-cta-btn:hover {
-  background-color: color-mix(in srgb, rgb(29 78 216) calc(var(--is-scrolled) * 100%), rgb(255 255 255 / 0.9));
-}
-
-.nav-mobile-btn {
-  transition: background-color 150ms ease-out, color 150ms ease-out;
-  background-color: color-mix(in srgb, rgb(241 245 249) calc(var(--is-scrolled) * 100%), transparent);
-  color: color-mix(in srgb, rgb(71 85 105) calc(var(--is-scrolled) * 100%), white);
-}
-
-.nav-mobile-btn:hover {
-  background-color: color-mix(in srgb, rgb(241 245 249) calc(var(--is-scrolled) * 100%), rgb(255 255 255 / 0.2));
-  color: color-mix(in srgb, rgb(15 23 42) calc(var(--is-scrolled) * 100%), white);
-}
-
-/* TabMenu CSS-only scroll state styling */
-.tab-menu-text {
-  transition: color 150ms ease-out;
-  color: color-mix(in srgb, rgb(71 85 105) calc(var(--is-scrolled, 0) * 100%), rgb(255 255 255 / 0.8));
-}
-
-.tab-menu-text-active {
-  transition: color 150ms ease-out;
-  color: color-mix(in srgb, rgb(15 23 42) calc(var(--is-scrolled, 0) * 100%), white);
-}
-
-.tab-menu-hover-bg {
-  transition: background-color 150ms ease-out;
-  background-color: color-mix(in srgb, rgb(241 245 249 / 0.8) calc(var(--is-scrolled, 0) * 100%), rgb(255 255 255 / 0.2));
 }

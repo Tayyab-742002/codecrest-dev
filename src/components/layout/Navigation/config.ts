@@ -1,4 +1,5 @@
-import type { TabItem, NavItem } from "../Navigation/types";
+import { NavItem } from "./types";
+import { TabItem } from "./types";
 
 export const TAB_ITEMS: TabItem[] = [
   { id: 1, title: "Overview" },

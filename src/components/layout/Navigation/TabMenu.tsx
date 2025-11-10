@@ -1,5 +1,7 @@
 "use client";
-import { useRef, useEffect, useMemo } from "react";
+
+import { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import MegaMenu from "./MegaMenu";
 import type { TabItem, NavItem } from "./types";
 
@@ -10,9 +12,10 @@ interface TabMenuProps {
   hoveredTab: TabItem | null;
   setHoveredTab: (item: TabItem | null) => void;
   megaMenuData: NavItem | null | undefined;
+  isScrolled?: boolean;
 }
 
-const TAB_LEAVE_DELAY = 150;
+const TAB_LEAVE_DELAY = 150; // Delay before clearing hover when leaving a tab
 
 export default function TabMenu({
   items,
@@ -21,10 +24,10 @@ export default function TabMenu({
   hoveredTab,
   setHoveredTab,
   megaMenuData,
+  isScrolled = false,
 }: TabMenuProps) {
   const leaveTimeoutRef = useRef<Map<number, NodeJS.Timeout>>(new Map());
   const currentHoveredRef = useRef<TabItem | null>(hoveredTab);
-  const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Update ref when hoveredTab changes
   useEffect(() => {
@@ -32,12 +35,15 @@ export default function TabMenu({
   }, [hoveredTab]);
 
   const handleTabMouseLeave = (item: TabItem) => {
+    // Clear any existing timeout for this item
     const existingTimeout = leaveTimeoutRef.current.get(item.id);
     if (existingTimeout) {
       clearTimeout(existingTimeout);
     }
 
+    // Set a delay before clearing hover
     const timeout = setTimeout(() => {
+      // Only clear if this item is still the hovered tab (user hasn't hovered another)
       if (currentHoveredRef.current?.id === item.id) {
         setHoveredTab(null);
       }
@@ -52,13 +58,7 @@ export default function TabMenu({
     leaveTimeoutRef.current.forEach((timeout) => clearTimeout(timeout));
     leaveTimeoutRef.current.clear();
 
-    // Clear mega menu timeout
-    if (megaMenuTimeoutRef.current) {
-      clearTimeout(megaMenuTimeoutRef.current);
-      megaMenuTimeoutRef.current = null;
-    }
-
-    // Immediate hover state update (no requestAnimationFrame delay)
+    // Immediately set hover when entering
     setHoveredTab(item);
   };
 
@@ -68,93 +68,85 @@ export default function TabMenu({
     return () => {
       timeoutsMap.forEach((timeout) => clearTimeout(timeout));
       timeoutsMap.clear();
-      if (megaMenuTimeoutRef.current) {
-        clearTimeout(megaMenuTimeoutRef.current);
-      }
     };
   }, []);
 
-  // Get text color class - uses CSS variable for scroll state
-  const getTextColorClass = useMemo(() => {
-    return (itemId: number) => {
-      const isHovered = hoveredTab?.id === itemId;
-      const isActive = activeTab.id === itemId;
-
-      if (isHovered || isActive) {
-        return "tab-menu-text-active";
-      }
-      return "tab-menu-text";
-    };
-  }, [hoveredTab?.id, activeTab.id]);
-
   return (
-    <div className="relative">
+    <div
+      className={`relative  ease-out `}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ul className="flex items-center justify-center overflow-x-auto scrollbar-hide">
-          {items.map((item) => {
-            const isItemHovered = hoveredTab?.id === item.id;
-            const isItemActive = activeTab.id === item.id;
-
-            return (
-              <li key={item.id} className="shrink-0">
-                <button
-                  className="py-2 relative transition-colors"
-                  onClick={() => setActiveTab(item)}
-                  onMouseEnter={() => handleTabMouseEnter(item)}
-                  onMouseLeave={() => handleTabMouseLeave(item)}
-                >
-                  <div className="px-5 py-2 relative cursor-pointer">
-                    {/* Hover background */}
-                    {isItemHovered && (
-                      <div
-                        className="absolute inset-0 tab-menu-hover-bg"
-                        style={{
-                          borderRadius: 6,
-                          zIndex: 0,
-                          backfaceVisibility: "hidden",
-                          transform: "translateZ(0)",
-                        }}
-                      />
-                    )}
-                    {/* Text */}
-                    <span
-                      className={`relative z-10 ${getTextColorClass(item.id)}`}
-                      style={{
-                        transition: "color 150ms ease-out",
-                      }}
-                    >
-                      {item.title}
-                    </span>
-                  </div>
-                  {(isItemActive || isItemHovered) && (
-                    <div
-                      className="absolute bottom-0 left-0 right-0 w-full h-0.5 bg-blue-600"
-                      style={{
-                        zIndex: 20,
-                        transition: "opacity 150ms ease-out",
-                        backfaceVisibility: "hidden",
-                        transform: "translateZ(0)",
-                      }}
+          {items.map((item) => (
+            <li key={item.id} className="shrink-0">
+              <button
+                className="py-2 relative  transition-colors"
+                onClick={() => setActiveTab(item)}
+                onMouseEnter={() => handleTabMouseEnter(item)}
+                onMouseLeave={() => handleTabMouseLeave(item)}
+              >
+                <div className="px-5 py-2 relative cursor-pointer">
+                  {/* Hover background - rendered first so it's behind the text */}
+                  {hoveredTab?.id === item.id && (
+                    <motion.div
+                      layoutId="hover-bg"
+                      className={`absolute inset-0 ${
+                        isScrolled ? "bg-white/20" : "bg-transparent"
+                      }`}
+                      style={{ borderRadius: 6, zIndex: 0 }}
+                      transition={{ duration: 0.2 }}
                     />
                   )}
-                </button>
-              </li>
-            );
-          })}
+                  {/* Text - rendered after background so it's on top */}
+                  <span
+                    className={`relative z-10  ease-out ${
+                      isScrolled
+                        ? hoveredTab?.id === item.id
+                          ? "text-slate-900"
+                          : activeTab.id === item.id
+                            ? "text-slate-900"
+                            : "text-slate-600"
+                        : hoveredTab?.id === item.id
+                          ? "text-white"
+                          : activeTab.id === item.id
+                            ? "text-white"
+                            : "text-white/80"
+                    }`}
+                  >
+                    {item.title}
+                  </span>
+                </div>
+                {activeTab.id === item.id && (
+                  <motion.div
+                    layoutId="active"
+                    className="absolute bottom-0 left-0 right-0 w-full h-0.5 bg-blue-600"
+                    style={{ zIndex: 20 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                )}
+                {hoveredTab?.id === item.id && (
+                  <motion.div
+                    layoutId="hover"
+                    className="absolute bottom-0 left-0 right-0 w-full h-0.5 bg-blue-600"
+                    style={{ zIndex: 20 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                )}
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
 
-      {/* Mega Menu - Optimized rendering */}
+      {/* Mega Menu - Only shows on hover and on desktop */}
       {hoveredTab && megaMenuData && (
         <div
           className="hidden md:block"
           onMouseEnter={() => {
+            // Clear any pending leave timeouts when entering mega menu
             leaveTimeoutRef.current.forEach((timeout) => clearTimeout(timeout));
             leaveTimeoutRef.current.clear();
-            if (megaMenuTimeoutRef.current) {
-              clearTimeout(megaMenuTimeoutRef.current);
-              megaMenuTimeoutRef.current = null;
-            }
+            setHoveredTab(hoveredTab);
           }}
         >
           <MegaMenu

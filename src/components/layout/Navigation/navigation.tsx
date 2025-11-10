@@ -1,11 +1,12 @@
 "use client";
-import { useState, useEffect, useMemo, useRef } from "react";
+
+import { useState, useEffect } from "react";
 import { Search, Globe, Sun, Menu } from "lucide-react";
 import TabMenu from "./TabMenu";
 import MobileMenu from "./mobile-menu";
 import { TAB_ITEMS, NAVIGATION_ITEMS } from "./config";
-import { NavItem } from "./types";
 import Link from "next/link";
+import { NavItem } from "./types";
 
 export default function Navigation() {
   const [activeTab, setActiveTab] = useState(TAB_ITEMS[0]);
@@ -13,75 +14,45 @@ export default function Navigation() {
     null
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
-  const sentinelRef = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Use Intersection Observer with CSS variables - minimal JS, CSS handles styling
   useEffect(() => {
-    const sentinel = sentinelRef.current;
-    const nav = navRef.current;
-    if (!sentinel || !nav) return;
+    let ticking = false;
 
-    // Update CSS variable instead of React state - CSS handles all styling
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (nav) {
-          // Update CSS variable on the navigation element
-          nav.style.setProperty(
-            "--is-scrolled",
-            entry.isIntersecting ? "0" : "1"
-          );
-        }
-      },
-      {
-        threshold: [1],
-        rootMargin: "-50px 0px 0px 0px",
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          setIsScrolled(scrollY > 100);
+          ticking = false;
+        });
+        ticking = true;
       }
-    );
-
-    observer.observe(sentinel);
-
-    // Set initial state
-    nav.style.setProperty("--is-scrolled", "0");
-
-    return () => {
-      observer.disconnect();
     };
+
+    // Check initial scroll position
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Memoize mega menu data lookup to prevent recalculation
-  const activeMegaMenuData = useMemo(() => {
-    return hoveredTab
-      ? NAVIGATION_ITEMS.find(
-          (item: NavItem) => item.id === hoveredTab.id.toString()
-        )
-      : null;
-  }, [hoveredTab]);
-
-  // CSS handles all styling based on --is-scrolled variable - no React state needed
+  // Get mega menu data for the hovered tab
+  const activeMegaMenuData = hoveredTab
+    ? NAVIGATION_ITEMS.find(
+        (item: NavItem) => item.id === hoveredTab.id.toString()
+      )
+    : null;
 
   return (
     <>
-      {/* Scroll sentinel - used by Intersection Observer for scroll detection */}
-      <div
-        ref={sentinelRef}
-        style={{
-          position: "absolute",
-          top: "50px",
-          left: 0,
-          width: "1px",
-          height: "1px",
-          pointerEvents: "none",
-          visibility: "hidden",
-        }}
-        aria-hidden="true"
-      />
       <header
-        ref={navRef}
-        className="nav-header"
-        style={{
-          "--is-scrolled": "0",
-        } as React.CSSProperties & { "--is-scrolled": string }}
+        className={`fixed top-0 left-0 right-0 z-40 transition-[background-color,border-color,box-shadow]  ease-out ${
+          isScrolled
+            ? "bg-white/60 backdrop-blur-md border-b border-slate-200/50 shadow-sm"
+            : "bg-transparent border-b border-transparent"
+        }`}
+        style={{ willChange: "background-color, border-color, box-shadow" }}
       >
         {/* Main Navigation Bar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,7 +61,9 @@ export default function Navigation() {
             <div className="shrink-0">
               <Link
                 href="/"
-                className="nav-logo text-2xl font-bold"
+                className={`text-2xl font-bold transition-colors ease-out ${
+                  isScrolled ? "text-slate-900" : "text-white"
+                }`}
               >
                 Logo
               </Link>
@@ -106,41 +79,58 @@ export default function Navigation() {
                   hoveredTab={hoveredTab}
                   setHoveredTab={setHoveredTab}
                   megaMenuData={activeMegaMenuData}
+                  isScrolled={isScrolled}
                 />
               </div>
-
               {/* Desktop Action Buttons */}
               <button
-                className="nav-icon-btn hidden md:flex h-10 w-10 items-center justify-center rounded-lg"
+                className={`hidden md:flex h-10 w-10 items-center justify-center rounded-lg  ease-out ${
+                  isScrolled
+                    ? "hover:bg-slate-100 text-slate-600 hover:text-slate-900"
+                    : "hover:bg-white/20 text-white hover:text-white"
+                }`}
                 aria-label="Search"
               >
                 <Search className="h-5 w-5" />
               </button>
-
               <button
-                className="nav-icon-btn hidden md:flex h-10 w-10 items-center justify-center rounded-lg"
+                className={`hidden md:flex h-10 w-10 items-center justify-center rounded-lg  ease-out ${
+                  isScrolled
+                    ? "hover:bg-slate-100 text-slate-600 hover:text-slate-900"
+                    : "hover:bg-white/20 text-white hover:text-white"
+                }`}
                 aria-label="Language"
               >
                 <Globe className="h-5 w-5" />
               </button>
-
               <button
-                className="nav-icon-btn hidden md:flex h-10 w-10 items-center justify-center rounded-lg"
+                className={`hidden md:flex h-10 w-10 items-center justify-center rounded-lg  ease-out ${
+                  isScrolled
+                    ? "hover:bg-slate-100 text-slate-600 hover:text-slate-900"
+                    : "hover:bg-white/20 text-white hover:text-white"
+                }`}
                 aria-label="Theme"
               >
                 <Sun className="h-5 w-5" />
               </button>
-
               <button
-                className="nav-cta-btn hidden md:inline-flex items-center justify-center px-5 h-10 text-sm font-medium rounded-full"
+                className={`hidden md:inline-flex items-center justify-center px-5 h-10 text-sm font-medium rounded-full  ease-out ${
+                  isScrolled
+                    ? "text-white bg-blue-600 hover:bg-blue-700"
+                    : "text-slate-900 bg-white hover:bg-white/90"
+                }`}
               >
                 Contact
               </button>
 
-              {/* Mobile Menu Button */}
+              {/* Mobile Menu Button - Only visible on mobile */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="nav-mobile-btn md:hidden h-10 w-10 flex items-center justify-center rounded-lg"
+                className={`md:hidden h-10 w-10 flex items-center justify-center rounded-lg  ease-out ${
+                  isScrolled
+                    ? "hover:bg-slate-100 text-slate-600 hover:text-slate-900"
+                    : "hover:bg-white/20 text-white hover:text-white"
+                }`}
                 aria-label="Open menu"
                 aria-expanded={isMobileMenuOpen}
               >
@@ -150,7 +140,7 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Only renders on mobile */}
         <MobileMenu
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
