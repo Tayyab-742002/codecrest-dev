@@ -12,44 +12,6 @@ export const TAB_ITEMS: TabItem[] = [
 
 export const NAVIGATION_ITEMS: NavItem[] = [
   {
-    id: "1",
-    label: "Overview",
-    hero: {
-      title: "Platform Overview",
-      description:
-        "Get a comprehensive view of your entire platform with real-time insights and analytics.",
-    },
-    columns: [
-      {
-        title: "Dashboard",
-        links: [
-          { label: "Analytics Dashboard", href: "#" },
-          { label: "Performance Metrics", href: "#" },
-          { label: "System Health", href: "#" },
-          { label: "Reports", href: "#" },
-        ],
-      },
-      {
-        title: "Insights",
-        links: [
-          { label: "User Analytics", href: "#" },
-          { label: "Traffic Sources", href: "#" },
-          { label: "Conversion Rates", href: "#" },
-          { label: "ROI Tracking", href: "#" },
-        ],
-      },
-      {
-        title: "Resources",
-        links: [
-          { label: "Getting Started", href: "#" },
-          { label: "Documentation", href: "#" },
-          { label: "Video Tutorials", href: "#" },
-          { label: "Best Practices", href: "#" },
-        ],
-      },
-    ],
-  },
-  {
     id: "2",
     label: "Services",
     hero: {
@@ -60,50 +22,85 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     columns: [
       {
         title: "Digital",
+        image:
+          "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=800&q=80",
         links: [
-          { label: "Digital Consulting & Strategy", href: "/services/digital-consulting-strategy" },
+          {
+            label: "Digital Consulting & Strategy",
+            href: "/services/digital-consulting-strategy",
+          },
           { label: "Digital Commerce", href: "/services/digital-commerce" },
-          { label: "Business Applications", href: "/services/business-applications" },
+          {
+            label: "Business Applications",
+            href: "/services/business-applications",
+          },
         ],
       },
       {
         title: "Data & Analytics",
+        image:
+          "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Data Modernization", href: "/services/data-modernization" },
           { label: "Advanced Analytics", href: "/services/advanced-analytics" },
-          { label: "Connected Intelligence", href: "/services/connected-intelligence" },
+          {
+            label: "Connected Intelligence",
+            href: "/services/connected-intelligence",
+          },
           { label: "Data Management", href: "/services/data-management" },
           { label: "Generative AI", href: "/services/generative-ai" },
         ],
       },
       {
         title: "Cloud",
+        image:
+          "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
         links: [
-          { label: "Cloud Operations & Migration", href: "/services/cloud-operations-migration" },
-          { label: "Cloud Application Development & Integration", href: "/services/cloud-application-development-integration" },
+          {
+            label: "Cloud Operations & Migration",
+            href: "/services/cloud-operations-migration",
+          },
+          {
+            label: "Cloud Application Development & Integration",
+            href: "/services/cloud-application-development-integration",
+          },
           { label: "Managed Services", href: "/services/managed-services" },
         ],
       },
       {
         title: "Digital Infrastructure Services",
+        image:
+          "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
         links: [],
       },
       {
         title: "Security",
+        image:
+          "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
         links: [],
       },
       {
         title: "Emerging Technologies",
+        image:
+          "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
         links: [],
       },
       {
         title: "Business Process Services",
+        image:
+          "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Contact Center", href: "/services/contact-center" },
           { label: "Digital Marketing", href: "/services/digital-marketing" },
-          { label: "Finance & Accounting", href: "/services/finance-accounting" },
+          {
+            label: "Finance & Accounting",
+            href: "/services/finance-accounting",
+          },
           { label: "Staff Augmentation", href: "/services/staff-augmentation" },
-          { label: "Legal Process Outsourcing", href: "/services/legal-process-outsourcing" },
+          {
+            label: "Legal Process Outsourcing",
+            href: "/services/legal-process-outsourcing",
+          },
         ],
       },
     ],
@@ -119,6 +116,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     columns: [
       {
         title: "Recent",
+        image:
+          "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Project 1", href: "#" },
           { label: "Project 2", href: "#" },
@@ -128,6 +127,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         title: "Monitoring",
+        image:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Project 5", href: "#" },
           { label: "Project 6", href: "#" },
@@ -137,6 +138,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         title: "Reports",
+        image:
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Project 9", href: "#" },
           { label: "Project 10", href: "#" },
@@ -157,6 +160,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     columns: [
       {
         title: "Management",
+        image:
+          "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Blog Post 1", href: "#" },
           { label: "Blog Post 2", href: "#" },
@@ -166,6 +171,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         title: "Security",
+        image:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Blog Post 5", href: "#" },
           { label: "Blog Post 6", href: "#" },
@@ -175,6 +182,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         title: "Configuration",
+        image:
+          "https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Blog Post 9", href: "#" },
           { label: "Blog Post 10", href: "#" },
@@ -195,6 +204,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     columns: [
       {
         title: "Overview",
+        image:
+          "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Current Usage", href: "#" },
           { label: "Billing History", href: "#" },
@@ -204,6 +215,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         title: "Resources",
+        image:
+          "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Storage Usage", href: "#" },
           { label: "Bandwidth", href: "#" },
@@ -213,6 +226,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         title: "Management",
+        image:
+          "https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Payment Methods", href: "#" },
           { label: "Plans & Pricing", href: "#" },
@@ -233,6 +248,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     columns: [
       {
         title: "Tools",
+        image:
+          "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "AI Assistant", href: "#" },
           { label: "Smart Automation", href: "#" },
@@ -242,6 +259,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         title: "Models",
+        image:
+          "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Custom Models", href: "#" },
           { label: "Model Training", href: "#" },
@@ -251,6 +270,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         title: "Resources",
+        image:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "AI Documentation", href: "#" },
           { label: "Use Cases", href: "#" },
@@ -271,6 +292,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     columns: [
       {
         title: "Account",
+        image:
+          "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Profile Settings", href: "#" },
           { label: "Security", href: "#" },
@@ -280,6 +303,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         title: "Team",
+        image:
+          "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "Team Members", href: "#" },
           { label: "Roles & Permissions", href: "#" },
@@ -289,6 +314,8 @@ export const NAVIGATION_ITEMS: NavItem[] = [
       },
       {
         title: "System",
+        image:
+          "https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=800&q=80",
         links: [
           { label: "API Keys", href: "#" },
           { label: "Webhooks", href: "#" },

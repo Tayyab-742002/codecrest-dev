@@ -35,10 +35,11 @@ const FeatureRow = ({
 
   const textY = useTransform(scrollYProgress, [0, 1], [60, 0]);
   const imageOpacity = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
-  const clipPath = useTransform(scrollYProgress, [0, 0.7], [
-    "inset(0 100% 0 0)",
-    "inset(0 0% 0 0)",
-  ]);
+  const clipPath = useTransform(
+    scrollYProgress,
+    [0, 0.7],
+    ["inset(0 100% 0 0)", "inset(0 0% 0 0)"]
+  );
 
   const imageSrc = feature.image ?? fallbackImage;
 
@@ -66,9 +67,9 @@ const FeatureRow = ({
 
       <motion.div
         style={{ opacity: imageOpacity, clipPath }}
-        className="relative w-full max-w-xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 shadow-[0_40px_120px_rgba(15,23,42,0.45)]"
+        className="relative w-full max-w-xl overflow-hidden  border border-white/10 bg-white/5 shadow-[0_40px_120px_rgba(15,23,42,0.45)]"
       >
-        <div className="relative aspect-[4/3] w-full">
+        <div className="relative aspect-4/3 w-full">
           <Image
             src={imageSrc}
             alt={feature.title}
@@ -76,11 +77,11 @@ const FeatureRow = ({
             sizes="(min-width: 1024px) 480px, 100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-tr from-black/40 via-black/10 to-transparent" />
         </div>
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-[2.5rem] border border-white/10"
+          className="pointer-events-none absolute inset-0  border border-white/10"
         />
       </motion.div>
     </div>
@@ -93,11 +94,7 @@ export function ServiceFeatures({ service }: ServiceFeaturesProps) {
   }
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-32 text-white sm:py-36">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-64 blur-3xl">
-        <div className="mx-auto h-full w-2/3 bg-gradient-to-b from-emerald-400/20 via-purple-500/10 to-transparent" />
-      </div>
-
+    <section className="relative overflow-hidden bg-[#050505] py-32 text-white sm:py-36">
       <div className="relative mx-auto flex max-w-6xl flex-col gap-24 px-6">
         <div className="flex flex-col items-center text-center">
           <p className="text-xs uppercase tracking-[0.4em] text-white/60">
@@ -132,4 +129,3 @@ export function ServiceFeatures({ service }: ServiceFeaturesProps) {
     </section>
   );
 }
-

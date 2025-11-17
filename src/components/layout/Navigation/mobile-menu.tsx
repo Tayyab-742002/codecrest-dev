@@ -23,19 +23,19 @@ interface NavItem {
   id: string;
   label: string;
   hero: NavHero;
-  columns: NavColumn[];
+  columns?: NavColumn[];
 }
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-  navigationItems: NavItem[];
+  navigationItems?: NavItem[] | undefined;
 }
 
 export default function MobileMenu({
   isOpen,
   onClose,
-  navigationItems,
+  navigationItems = [],
 }: MobileMenuProps) {
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
   const [expandedColumn, setExpandedColumn] = useState<string | null>(null);
@@ -74,7 +74,7 @@ export default function MobileMenu({
       {/* Slide-out menu */}
       <div className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white shadow-xl animate-slide-in overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="flex-shrink-0 px-5 py-4 border-b border-slate-200 bg-white">
+        <div className="shrink-0 px-5 py-4 border-b border-slate-200 bg-white">
           <div className="flex items-center justify-between">
             <span className="text-base font-semibold text-slate-900">Menu</span>
             <button
@@ -132,7 +132,7 @@ export default function MobileMenu({
 
                       {/* Columns */}
                       <div className="space-y-3">
-                        {item.columns.map((column, idx) => {
+                        {item.columns && item.columns.map((column, idx) => {
                           const columnId = `${item.id}-${idx}`;
                           const isColumnExpanded = expandedColumn === columnId;
 

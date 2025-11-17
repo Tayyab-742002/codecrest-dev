@@ -11,6 +11,7 @@ export interface MegaMenuLink {
 export interface MegaMenuColumn {
   title: string;
   links: MegaMenuLink[];
+  image?: string;
 }
 
 export interface MegaMenuHero {
@@ -22,5 +23,5 @@ export interface NavItem {
   id: string;
   label: string;
   hero: MegaMenuHero;
-  columns: MegaMenuColumn[];
+  columns?: MegaMenuColumn[];
 }

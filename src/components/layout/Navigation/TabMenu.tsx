@@ -70,7 +70,7 @@ export default function TabMenu({
           {items.map((item) => (
             <li key={item.id} className="shrink-0">
               <button
-                className="relative transition-all duration-150"
+                className="relative transition-all duration-150 "
                 onClick={() => setActiveTab(item)}
                 onMouseEnter={() => handleTabMouseEnter(item)}
                 onMouseLeave={() => handleTabMouseLeave(item)}
@@ -113,7 +113,9 @@ export default function TabMenu({
                   <motion.div
                     layoutId="active"
                     className={`absolute bottom-0 left-0 right-0 w-full h-[2px] ${
-                      isScrolled ? "bg-blue-600" : "bg-white"
+                      isScrolled
+                        ? "bg-linear-to-r from-blue-400 via-indigo-400 to-purple-400"
+                        : "bg-white"
                     }`}
                     style={{ zIndex: 20 }}
                     transition={{
@@ -141,7 +143,7 @@ export default function TabMenu({
         >
           <MegaMenu
             hero={megaMenuData.hero}
-            columns={megaMenuData.columns}
+            columns={megaMenuData.columns || []}
             onMouseLeave={() => setHoveredTab(null)}
           />
         </div>

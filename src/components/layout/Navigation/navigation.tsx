@@ -81,10 +81,10 @@ export default function Navigation() {
 
               {/* CTA Button */}
               <button
-                className={`hidden md:inline-flex items-center justify-center px-5 h-10 text-sm font-semibold rounded-lg transition-all duration-200 ${
+                className={`hidden  md:inline-flex items-center justify-center px-5 h-10 text-sm font-semibold rounded-lg transition-all duration-200 ${
                   isScrolled
-                    ? "text-white bg-blue-600 hover:bg-blue-700 shadow-sm"
-                    : "text-slate-900 bg-white hover:bg-white/90"
+                    ? "text-white bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"
+                    : "text-white bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"
                 }`}
               >
                 Contact
@@ -110,7 +110,7 @@ export default function Navigation() {
         <MobileMenu
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
-          navigationItems={NAVIGATION_ITEMS}
+          navigationItems={NAVIGATION_ITEMS as unknown as  NavItem[]}
         />
       </header>
     </>

@@ -13,6 +13,7 @@ export interface ServiceFeature {
 export interface UseCase {
   title: string;
   description: string;
+  image: string;
 }
 
 export interface ServiceDetail {
@@ -49,6 +50,7 @@ export interface ServiceDetail {
   ctaDescription?: string;
   ctaButtonText?: string;
   ctaButtonHref?: string;
+  ctaVideo?: string;
 
   // Metadata
   metaTitle?: string;
@@ -106,16 +108,22 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "Digital Transformation Planning",
         description:
           "Develop comprehensive strategies for organizations looking to modernize their operations.",
+        image:
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Technology Stack Optimization",
         description:
           "Evaluate and optimize existing technology infrastructure for better performance.",
+        image:
+          "https://images.unsplash.com/photo-1480694313141-fce5e697ee25?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Innovation Consulting",
         description:
           "Identify and implement innovative solutions to drive business growth.",
+        image:
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -186,16 +194,22 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "B2C E-commerce",
         description:
           "Complete online retail solutions for consumer-facing businesses.",
+        image:
+          "https://images.unsplash.com/photo-1515165562835-c4c1bfa1f1c9?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "B2B Commerce",
         description:
           "Enterprise-grade commerce platforms for business-to-business transactions.",
+        image:
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Marketplace Development",
         description:
           "Multi-vendor marketplace platforms connecting buyers and sellers.",
+        image:
+          "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -260,16 +274,22 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "Enterprise Resource Planning",
         description:
           "Custom ERP solutions to manage business resources and operations.",
+        image:
+          "https://images.unsplash.com/photo-1454165205744-3b78555e5572?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Customer Relationship Management",
         description:
           "Tailored CRM systems to manage customer interactions and data.",
+        image:
+          "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Workflow Automation",
         description:
           "Automate business processes to reduce manual work and errors.",
+        image:
+          "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -338,15 +358,21 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "Cloud Migration",
         description:
           "Move on-premises data systems to cloud platforms for scalability.",
+        image:
+          "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Data Warehouse Modernization",
         description:
           "Upgrade traditional data warehouses to modern data lake architectures.",
+        image:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "API-First Data Access",
         description: "Enable programmatic access to data through modern APIs.",
+        image:
+          "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -410,15 +436,21 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "Customer Behavior Analysis",
         description:
           "Understand customer patterns to improve engagement and retention.",
+        image:
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Demand Forecasting",
         description:
           "Predict future demand to optimize inventory and supply chains.",
+        image:
+          "https://images.unsplash.com/photo-1517142089942-ba376ce32a0e?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Risk Assessment",
         description: "Identify and mitigate risks through predictive modeling.",
+        image:
+          "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -488,14 +520,20 @@ export const SERVICES_DATA: ServiceDetail[] = [
       {
         title: "Enterprise Data Integration",
         description: "Unify data from multiple business units and systems.",
+        image:
+          "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Real-time Business Intelligence",
         description: "Access real-time insights across all business functions.",
+        image:
+          "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "360-Degree Customer View",
         description: "Comprehensive view of customers across all touchpoints.",
+        image:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -563,16 +601,22 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "Compliance Management",
         description:
           "Ensure data compliance with regulations like GDPR, HIPAA, and CCPA.",
+        image:
+          "https://images.unsplash.com/photo-1503389152951-9f343605f61d?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Data Quality Improvement",
         description:
           "Improve data quality across systems for better decision-making.",
+        image:
+          "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Master Data Management",
         description:
           "Create single source of truth for critical business data.",
+        image:
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -609,33 +653,6 @@ export const SERVICES_DATA: ServiceDetail[] = [
       "Our generative AI services harness advanced machine learning technologies to provide customized solutions through user-friendly interfaces. We support clients in adoption, simplification, solution design, implementation, and seamless integration of generative AI capabilities.",
     overviewImage:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1740",
-    industryOfferings: [
-      {
-        title: "Telecommunications",
-        description:
-          "Transform the telco industry by optimizing networks, predicting maintenance, and elevating customer interactions, including code migration and test case generation. Generative AI revolutionizes customer support with chatbots, virtual assistants, and personalized recommendations, enhancing service quality and satisfaction.",
-      },
-      {
-        title: "Banking and Financial Services",
-        description:
-          "Leverage promising generative AI capabilities in finance to aid fraud detection through synthetic examples. Transform insurance with risk optimization, automated claims, and personalized offerings. Enhance underwriting accuracy, bolster fraud detection, and tailor insurance to individual needs.",
-      },
-      {
-        title: "Retail & CPG",
-        description:
-          "Revolutionize retail with personalized customer experiences, boost loyalty, and provide real-time dynamic pricing for competitive advantage. Optimize inventory management, leveraging data analysis and enhancing supply chain efficiency with predictive analytics.",
-      },
-      {
-        title: "Healthcare & Pharmaceuticals",
-        description:
-          "Efficiently process extensive patient data to provide customized medication and therapy recommendations, improving treatment outcomes. Revolutionize the vertical by summarizing and analyzing scientific literature, accelerating drug discovery, improving diagnostics, and driving medical innovation.",
-      },
-      {
-        title: "Public Sector",
-        description:
-          "Enhance citizen services, boost government efficiency, aid creativity, and cultivate a more productive public sector. Public organizations should adopt generative AI thoughtfully, fostering engagement and experimentation for positive impact.",
-      },
-    ],
     features: [
       {
         title: "Custom AI Solutions",
@@ -671,16 +688,22 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "Customer Service Automation",
         description:
           "AI-powered chatbots and virtual assistants for 24/7 customer support.",
+        image:
+          "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Content Creation",
         description:
           "Generate marketing content, documentation, and communications automatically.",
+        image:
+          "https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Code Generation",
         description:
           "Assist developers with code generation, migration, and test case creation.",
+        image:
+          "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -755,14 +778,20 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "Lift and Shift Migration",
         description:
           "Move existing applications to the cloud with minimal changes.",
+        image:
+          "https://images.unsplash.com/photo-1478479474071-8a3014d422c8?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Cloud-Native Transformation",
         description: "Refactor applications for cloud-native architectures.",
+        image:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Multi-Cloud Operations",
         description: "Manage workloads across multiple cloud providers.",
+        image:
+          "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -825,15 +854,21 @@ export const SERVICES_DATA: ServiceDetail[] = [
       {
         title: "SaaS Application Development",
         description: "Build scalable Software-as-a-Service applications.",
+        image:
+          "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "API-First Integration",
         description: "Create APIs to connect disparate systems and services.",
+        image:
+          "https://images.unsplash.com/photo-1488229297570-58520851e868?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Event-Driven Applications",
         description:
           "Build reactive applications using event-driven architectures.",
+        image:
+          "https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -902,15 +937,21 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "Infrastructure Management",
         description:
           "Complete management of cloud and on-premises infrastructure.",
+        image:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Application Support",
         description:
           "Ongoing support and maintenance for business applications.",
+        image:
+          "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Security Management",
         description: "Comprehensive security monitoring and threat management.",
+        image:
+          "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -978,16 +1019,22 @@ export const SERVICES_DATA: ServiceDetail[] = [
       {
         title: "Customer Support Outsourcing",
         description: "Complete contact center operations managed by our team.",
+        image:
+          "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Technology Implementation",
         description:
           "Deploy and integrate contact center technology platforms.",
+        image:
+          "https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Performance Optimization",
         description:
           "Improve contact center efficiency and customer satisfaction.",
+        image:
+          "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -1051,14 +1098,20 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "Brand Awareness Campaigns",
         description:
           "Increase visibility and recognition in your target market.",
+        image:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Lead Generation",
         description: "Attract and convert prospects into qualified leads.",
+        image:
+          "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "E-commerce Marketing",
         description: "Drive sales and revenue for online businesses.",
+        image:
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -1123,15 +1176,21 @@ export const SERVICES_DATA: ServiceDetail[] = [
       {
         title: "Outsourced Accounting",
         description: "Complete accounting function managed by our team.",
+        image:
+          "https://images.unsplash.com/photo-1523419409543-0c1df022bddb?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Financial System Implementation",
         description: "Deploy and configure accounting and ERP systems.",
+        image:
+          "https://images.unsplash.com/photo-1450101215322-bf5cd27642fc?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Compliance Management",
         description:
           "Ensure compliance with financial regulations and standards.",
+        image:
+          "https://images.unsplash.com/photo-1521540216272-a50305cd4421?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -1191,14 +1250,20 @@ export const SERVICES_DATA: ServiceDetail[] = [
       {
         title: "Project-Based Augmentation",
         description: "Add specialized skills for specific projects.",
+        image:
+          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Long-Term Team Extension",
         description: "Extend your team with dedicated professionals.",
+        image:
+          "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Skill Gap Filling",
         description: "Fill skill gaps in your existing team.",
+        image:
+          "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [
@@ -1259,15 +1324,21 @@ export const SERVICES_DATA: ServiceDetail[] = [
         title: "Document Review Projects",
         description:
           "Large-scale document review for litigation and due diligence.",
+        image:
+          "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Contract Processing",
         description: "High-volume contract drafting and review.",
+        image:
+          "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80",
       },
       {
         title: "Legal Research",
         description:
           "Research support for case preparation and legal opinions.",
+        image:
+          "https://images.unsplash.com/photo-1460518451285-97b6aa326961?auto=format&fit=crop&w=1600&q=80",
       },
     ],
     benefits: [

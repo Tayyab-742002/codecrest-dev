@@ -163,7 +163,7 @@ export function ServiceOverview({ service }: ServiceOverviewProps) {
             </motion.div>
 
             <motion.div
-              className="relative z-10 h-[420px] w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl sm:h-[520px] md:h-[640px]"
+              className="relative z-10 h-[420px] w-full overflow-hidden  border border-slate-200 bg-white shadow-2xl sm:h-[520px] md:h-[640px]"
               initial={{ y: 0 }}
               whileInView={{ y: reverseLayout ? 20 : 30 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.1 }}
