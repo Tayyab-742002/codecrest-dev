@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 type Slide = {
@@ -188,49 +188,121 @@ export default function Slideshow() {
           {/* Overlay for better text readability */}
           <div className="absolute inset-0 bg-black/40" />
 
-          {/* Slide Text Content */}
+          {/* Large bottom text - Main Title */}
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center z-20"
+            className="absolute bottom-[15%] left-0 right-0 z-20 pointer-events-none"
             style={{
-              willChange: "opacity",
+              willChange: "opacity, transform",
             }}
           >
-            <div className="text-center space-y-4 px-4">
-              {slide.text.map((t, j) => (
-                <h2
-                  key={j}
-                  className={`text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight ${
-                    j === 0 ? "text-white" : ""
-                  }`}
-                  style={{
-                    ...(j === 0
-                      ? {
-                          color: "#FFFFFF",
-                          textShadow:
-                            "0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.2)",
-                          filter:
-                            "drop-shadow(0 0 4px rgba(255, 255, 255, 0.3))",
-                          fontFamily:
-                            '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif',
-                          fontWeight: 900,
-                          letterSpacing: "-0.02em",
-                        }
-                      : {
-                          color: "#FC2947",
-                          textShadow:
-                            "0 0 15px rgba(252, 41, 71, 0.4), 0 0 30px rgba(252, 41, 71, 0.2), 0 1px 5px rgba(0, 0, 0, 0.15)",
-                          filter: "drop-shadow(0 0 6px rgba(252, 41, 71, 0.3))",
-                          fontFamily:
-                            '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif',
-                          fontWeight: 300,
-                          letterSpacing: "0.05em",
-                          fontSize: "clamp(1.5rem, 3vw, 2.5rem)",
-                        }),
-                  }}
-                >
-                  {t}
-                </h2>
-              ))}
+            <div
+              style={{
+                fontFamily: 'Arial Black, Arial, sans-serif',
+                fontSize: 'clamp(4rem, 15vw, 12rem)',
+                fontWeight: '900',
+                color: 'white',
+                textAlign: 'center',
+                lineHeight: 0.8,
+                letterSpacing: '-0.02em',
+                textShadow: '0 0 50px rgba(255, 255, 255, 0.3)',
+                filter: 'contrast(1.2)',
+              }}
+            >
+              {slide.text[0] || "BUILDING TOMORROW"}
+            </div>
+          </div>
+
+          {/* Left side text */}
+          <div
+            className="absolute left-8 top-[40%] z-20 pointer-events-none"
+            style={{
+              willChange: "opacity, transform",
+            }}
+          >
+            <div
+              style={{
+                fontFamily: 'Arial, sans-serif',
+                fontSize: '11px',
+                color: 'white',
+                lineHeight: 1.4,
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+                opacity: 0.8,
+                maxWidth: '150px',
+              }}
+            >
+              {slide.text[1] ? (
+                slide.text[1].split(' ').map((word, i, arr) => (
+                  <React.Fragment key={i}>
+                    {word}
+                    {i < arr.length - 1 && <br />}
+                  </React.Fragment>
+                ))
+              ) : (
+                <>
+                  In the dark<br />
+                  is where<br />
+                  light takes form
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Right side text */}
+          <div
+            className="absolute right-8 top-[40%] z-20 pointer-events-none"
+            style={{
+              willChange: "opacity, transform",
+            }}
+          >
+            <div
+              style={{
+                fontFamily: 'Arial, sans-serif',
+                fontSize: '11px',
+                color: 'white',
+                lineHeight: 1.4,
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase',
+                opacity: 0.8,
+                maxWidth: '150px',
+                textAlign: 'right',
+              }}
+            >
+              {slide.text[2] ? (
+                slide.text[2].split(' ').map((word, i, arr) => (
+                  <React.Fragment key={i}>
+                    {word}
+                    {i < arr.length - 1 && <br />}
+                  </React.Fragment>
+                ))
+              ) : (
+                <>
+                  In emptiness<br />
+                  we find<br />
+                  true happiness
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Bottom left credit text */}
+          <div
+            className="absolute bottom-[8%] left-8 z-20 pointer-events-none"
+            style={{
+              willChange: "opacity, transform",
+            }}
+          >
+            <div
+              style={{
+                fontFamily: 'Arial, sans-serif',
+                fontSize: '10px',
+                color: 'white',
+                letterSpacing: '1px',
+                textTransform: 'uppercase',
+                opacity: 0.7,
+              }}
+            >
+              Art & Design by @codecrest
             </div>
           </div>
         </div>
@@ -275,14 +347,14 @@ export default function Slideshow() {
       </div>
 
       {/* GET IN TOUCH Button - Static, always visible */}
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30">
+      {/* <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30">
         <Link
           href="/contact"
           className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
           GET IN TOUCH
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

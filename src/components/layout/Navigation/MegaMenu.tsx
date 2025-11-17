@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import type { MegaMenuColumn, MegaMenuHero } from "./types";
 
 interface MegaMenuProps {
@@ -98,7 +99,7 @@ export default function MegaMenu({
                 <ul className="space-y-1">
                   {column.links.map((link, linkIdx) => (
                     <li key={linkIdx}>
-                      <a
+                      <Link
                         href={link.href}
                         className="group flex items-center justify-between px-3 py-2.5 -mx-3 rounded-md hover:bg-slate-50 transition-colors duration-150"
                       >
@@ -118,7 +119,7 @@ export default function MegaMenu({
                             d="M9 5l7 7-7 7"
                           />
                         </svg>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

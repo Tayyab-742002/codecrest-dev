@@ -101,10 +101,10 @@ export function AboutScrollSection({
                     className={`${styles.word}`}
                     style={{ "--i": String(index) } as CSSProperties}
                   >
-                    {word}
-                  </li>
-                ))}
-              </ul>
+                {word}
+              </li>
+            ))}
+          </ul>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@ export function AboutScrollSection({
             <p className="text-base text-foreground/65 sm:text-lg">
               {secondaryDescription}
             </p>
-          </div>
+    </div>
 
           {showCta ? (
             <div>

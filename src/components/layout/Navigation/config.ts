@@ -59,30 +59,51 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     },
     columns: [
       {
-        title: "Popular",
+        title: "Digital",
         links: [
-          { label: "Web Development", href: "#" },
-          { label: "Mobile Development", href: "#" },
-          { label: "UI/UX Design", href: "#" },
-          { label: "SEO Optimization", href: "#" },
+          { label: "Digital Consulting & Strategy", href: "/services/digital-consulting-strategy" },
+          { label: "Digital Commerce", href: "/services/digital-commerce" },
+          { label: "Business Applications", href: "/services/business-applications" },
         ],
       },
       {
-        title: "Development",
+        title: "Data & Analytics",
         links: [
-          { label: "Backend Development", href: "#" },
-          { label: "Frontend Development", href: "#" },
-          { label: "Database Management", href: "#" },
-          { label: "API Development", href: "#" },
+          { label: "Data Modernization", href: "/services/data-modernization" },
+          { label: "Advanced Analytics", href: "/services/advanced-analytics" },
+          { label: "Connected Intelligence", href: "/services/connected-intelligence" },
+          { label: "Data Management", href: "/services/data-management" },
+          { label: "Generative AI", href: "/services/generative-ai" },
         ],
       },
       {
-        title: "Marketing",
+        title: "Cloud",
         links: [
-          { label: "Digital Marketing", href: "#" },
-          { label: "Social Media Management", href: "#" },
-          { label: "Content Creation", href: "#" },
-          { label: "Email Marketing", href: "#" },
+          { label: "Cloud Operations & Migration", href: "/services/cloud-operations-migration" },
+          { label: "Cloud Application Development & Integration", href: "/services/cloud-application-development-integration" },
+          { label: "Managed Services", href: "/services/managed-services" },
+        ],
+      },
+      {
+        title: "Digital Infrastructure Services",
+        links: [],
+      },
+      {
+        title: "Security",
+        links: [],
+      },
+      {
+        title: "Emerging Technologies",
+        links: [],
+      },
+      {
+        title: "Business Process Services",
+        links: [
+          { label: "Contact Center", href: "/services/contact-center" },
+          { label: "Digital Marketing", href: "/services/digital-marketing" },
+          { label: "Finance & Accounting", href: "/services/finance-accounting" },
+          { label: "Staff Augmentation", href: "/services/staff-augmentation" },
+          { label: "Legal Process Outsourcing", href: "/services/legal-process-outsourcing" },
         ],
       },
     ],

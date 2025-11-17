@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { X, ChevronRight, ChevronDown } from "lucide-react";
 
 interface NavLink {
@@ -159,7 +160,7 @@ export default function MobileMenu({
                                 <ul className="space-y-0.5 pl-2">
                                   {column.links.map((link, linkIdx) => (
                                     <li key={linkIdx}>
-                                      <a
+                                      <Link
                                         href={link.href}
                                         className="flex items-center justify-between py-2.5 px-3 -mx-3 rounded-md hover:bg-slate-50 transition-colors duration-150 group"
                                         onClick={onClose}
@@ -175,7 +176,7 @@ export default function MobileMenu({
                                           )}
                                         </div>
                                         <ChevronRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex-shrink-0 ml-2" />
-                                      </a>
+                                      </Link>
                                     </li>
                                   ))}
                                 </ul>
