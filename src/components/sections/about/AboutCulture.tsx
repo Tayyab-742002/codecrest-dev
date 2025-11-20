@@ -92,10 +92,10 @@ function BentoCard({
         <h1 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-white/60">
           {eyebrow}
         </h1>
-        <p className="mt-1 text-lg sm:text-xl md:text-2xl font-medium tracking-tight text-white group-data-dark:text-white">
+        <p className="mt-1 text-lg sm:text-xl md:text-2xl font-medium tracking-tight text-white ">
           {title}
         </p>
-        <p className="mt-2 max-w-[600px] text-xs sm:text-sm leading-relaxed text-white/70 dark:text-white/60 group-data-dark:text-white/60">
+        <p className="mt-2 max-w-[600px] text-xs sm:text-sm leading-relaxed text-white/70 dark:text-white/60 ">
           {description}
         </p>
       </div>
@@ -106,10 +106,10 @@ function BentoCard({
 export default function AboutCulture() {
   return (
     <section className="pt-16 sm:pt-20 md:pt-24 lg:pt-32 container mx-auto  w-full flex flex-col px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-10 sm:py-12 md:py-16 lg:py-20">
-      <h1 className="font-geistMono tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white">
+      <h1 className="font-heading font-bold tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-black">
         Culture
       </h1>
-      <p className="max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl font-medium tracking-tight mt-2 sm:mt-3 md:mt-4 text-white/50">
+      <p className="max-w-3xl text-base sm:text-lg md:text-xl lg:text-2xl font-medium tracking-tight mt-2 sm:mt-3 md:mt-4 text-black/50">
         Principles that shape every engagement.
       </p>
       <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:grid-cols-6 lg:grid-rows-2 lg:gap-4 xl:gap-6">

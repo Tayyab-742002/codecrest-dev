@@ -86,7 +86,7 @@ export default function MegaMenu({
 
               {/* Enhanced CTA Card */}
               <Link
-                href="/#contact"
+                href="/contact"
                 className="mt-6 block p-4 bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500 border border-slate-200/60 hover:border-blue-200 transition-colors duration-200 group rounded-lg"
               >
                 <div className="flex items-center justify-between">

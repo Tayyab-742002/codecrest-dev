@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { AlertTriangle } from "lucide-react";
 import { TimelineContent } from "../../ui/TimelineContent";
 import VerticalCutReveal from "../../ui/vertical-cut-reveal";
-import { GlowingEffect } from "../../ui/glowing-effect";
+import { GlowingEffect } from "../../ui/glowingEffect";
 
 interface ProjectChallenge {
   title: string;
@@ -108,7 +108,7 @@ export default function ProjectChallenges({
               customVariants={revealVariants}
               className="relative"
             >
-              <div className="group relative p-6 sm:p-8 bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 rounded-lg">
+              <div className="group relative p-6 sm:p-8 bg-black/5 border border-white/10 hover:bg-white/10 transition-all duration-300 rounded-lg">
                 {/* Glowing Effect */}
                 <GlowingEffect
                   variant="blue-purple"

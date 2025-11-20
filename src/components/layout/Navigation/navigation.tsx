@@ -38,10 +38,6 @@ export default function Navigation() {
   }, []);
 
   useEffect(() => {
-    if (pathname === "/") {
-      return;
-    }
-
     const matchedTab =
       TAB_ITEMS.find((item) =>
         item.matchPrefixes?.some((prefix) => pathname.startsWith(prefix))
@@ -98,7 +94,7 @@ export default function Navigation() {
 
               {/* CTA Button */}
               <Link
-                href="/#contact"
+                href="/contact"
                 className={`hidden md:inline-flex items-center justify-center px-5 h-10 text-sm font-semibold rounded-lg transition-all duration-200 ${
                   isScrolled
                     ? "text-white bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"

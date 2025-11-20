@@ -120,7 +120,7 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
         }
         return Math.abs(staggerFrom - index) * staggerDuration;
       },
-      [elements.length, staggerFrom, staggerDuration]
+      [splitBy, elements, staggerFrom, staggerDuration]
     );
 
     const startAnimation = useCallback(() => {
@@ -137,9 +137,13 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
     // Auto start animation
     useEffect(() => {
       if (autoStart) {
-        startAnimation();
+        // Defer state update to avoid cascading renders
+        const timeoutId = setTimeout(() => {
+          startAnimation();
+        }, 0);
+        return () => clearTimeout(timeoutId);
       }
-    }, [autoStart]);
+    }, [autoStart, startAnimation]);
 
     const variants = {
       hidden: { y: reverse ? "-100%" : "100%" },

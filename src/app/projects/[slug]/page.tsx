@@ -63,9 +63,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {project.timeline && project.timeline.length > 0 && (
         <ProjectTimeline timeline={project.timeline} />
       )}
-      {project.testimonial && <ProjectTestimonial testimonial={project.testimonial} />}
+      {project.testimonial && (
+        <ProjectTestimonial testimonial={project.testimonial} />
+      )}
     </div>
   );
 }
-
-

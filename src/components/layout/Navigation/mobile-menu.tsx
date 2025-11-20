@@ -174,7 +174,7 @@ export default function MobileMenu({
         {/* Footer CTA */}
         <div className="shrink-0 px-5 py-4 border-t border-slate-200 bg-white">
           <Link
-            href="/#contact"
+            href="/contact"
             onClick={onClose}
             className="w-full inline-flex h-11 px-5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-150 items-center justify-center"
           >
