@@ -7,19 +7,34 @@ import { Featured } from "../components/sections/Featured/Featured";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <div id="overview" className="scroll-mt-24">
+        <Hero />
+      </div>
 
-      <AboutScrollSection
-        highlights={["Innovation.", "momentum.", "confidence.", "scalability."]}
-        headingPrefix="We partner with teams to deliver"
-        accentHue={266}
-        startOffsetVh={54}
-        stackSpacingVh={44}
-      />
+      <div id="about" className="scroll-mt-24">
+        <AboutScrollSection
+          highlights={[
+            "Innovation.",
+            "momentum.",
+            "confidence.",
+            "scalability.",
+          ]}
+          headingPrefix="We partner with teams to deliver"
+          accentHue={266}
+          startOffsetVh={54}
+          stackSpacingVh={44}
+        />
+      </div>
 
-      <ServicesSection />
-      <Featured />
-      <CallToAction />
+      <div id="services" className="scroll-mt-24">
+        <ServicesSection />
+      </div>
+      <div id="projects-highlight" className="scroll-mt-24">
+        <Featured />
+      </div>
+      <div id="contact" className="scroll-mt-24">
+        <CallToAction />
+      </div>
     </>
   );
 }

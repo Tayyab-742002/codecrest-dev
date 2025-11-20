@@ -2,11 +2,12 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import type { MegaMenuColumn, MegaMenuHero } from "./types";
+import type { MegaMenuColumn, MegaMenuHero, NavItem } from "./types";
 
 interface MegaMenuProps {
   hero: MegaMenuHero;
   columns: MegaMenuColumn[];
+  footerLink?: NavItem["footerLink"];
   onMouseLeave: () => void;
 }
 
@@ -15,9 +16,18 @@ const CLOSE_DELAY = 200;
 export default function MegaMenu({
   hero,
   columns,
+  footerLink,
   onMouseLeave,
 }: MegaMenuProps) {
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastColumnWithLinksIndex = (() => {
+    for (let i = columns.length - 1; i >= 0; i -= 1) {
+      if (columns[i]?.links?.length) {
+        return i;
+      }
+    }
+    return -1;
+  })();
 
   const handleMouseLeave = () => {
     if (closeTimeoutRef.current) {
@@ -75,7 +85,10 @@ export default function MegaMenu({
               </div>
 
               {/* Enhanced CTA Card */}
-              <div className="mt-6 p-4  cursor-pointer bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500 border border-slate-200/60 hover:border-blue-200 transition-colors duration-200 group">
+              <Link
+                href="/#contact"
+                className="mt-6 block p-4 bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500 border border-slate-200/60 hover:border-blue-200 transition-colors duration-200 group rounded-lg"
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 group-hover:bg-blue-200 transition-colors duration-200">
@@ -94,7 +107,7 @@ export default function MegaMenu({
                       </svg>
                     </div>
                     <span className="text-xs font-semibold  text-white">
-                      Explore Services
+                      Talk to our team
                     </span>
                   </div>
                   <svg
@@ -111,7 +124,7 @@ export default function MegaMenu({
                     />
                   </svg>
                 </div>
-              </div>
+              </Link>
             </div>
 
             {/* Content Columns - Enhanced */}
@@ -181,13 +194,13 @@ export default function MegaMenu({
                     </p>
                   )}
 
-                  {hasLinks && idx === columns.length - 1 && (
+                  {footerLink && hasLinks && idx === lastColumnWithLinksIndex && (
                     <div className="pt-4 mt-4 border-t border-slate-500/60">
                       <Link
-                        href="/services"
+                        href={footerLink.href}
                         className="group flex items-center gap-2 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors duration-200"
                       >
-                        <span>View All Services</span>
+                        <span>{footerLink.label}</span>
                         <svg
                           className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
                           fill="none"

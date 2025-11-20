@@ -7,6 +7,7 @@ import MobileMenu from "./mobile-menu";
 import { TAB_ITEMS, NAVIGATION_ITEMS } from "./config";
 import Link from "next/link";
 import { NavItem } from "./types";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const [activeTab, setActiveTab] = useState(TAB_ITEMS[0]);
@@ -15,6 +16,7 @@ export default function Navigation() {
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     let ticking = false;
@@ -34,6 +36,21 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (pathname === "/") {
+      return;
+    }
+
+    const matchedTab =
+      TAB_ITEMS.find((item) =>
+        item.matchPrefixes?.some((prefix) => pathname.startsWith(prefix))
+      ) ?? TAB_ITEMS.find((item) => item.href === pathname);
+
+    if (matchedTab && matchedTab.id !== activeTab.id) {
+      setActiveTab(matchedTab);
+    }
+  }, [pathname, activeTab.id]);
 
   const activeMegaMenuData = hoveredTab
     ? NAVIGATION_ITEMS.find(
@@ -80,15 +97,16 @@ export default function Navigation() {
               </div>
 
               {/* CTA Button */}
-              <button
-                className={`hidden  md:inline-flex items-center justify-center px-5 h-10 text-sm font-semibold rounded-lg transition-all duration-200 ${
+              <Link
+                href="/#contact"
+                className={`hidden md:inline-flex items-center justify-center px-5 h-10 text-sm font-semibold rounded-lg transition-all duration-200 ${
                   isScrolled
                     ? "text-white bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"
                     : "text-white bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600"
                 }`}
               >
                 Contact
-              </button>
+              </Link>
 
               {/* Mobile Menu Button */}
               <button
@@ -110,7 +128,7 @@ export default function Navigation() {
         <MobileMenu
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
-          navigationItems={NAVIGATION_ITEMS as unknown as  NavItem[]}
+          navigationItems={NAVIGATION_ITEMS}
         />
       </header>
     </>

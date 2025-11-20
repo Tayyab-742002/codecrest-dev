@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import MegaMenu from "./MegaMenu";
 import type { TabItem, NavItem } from "./types";
 
@@ -26,6 +27,7 @@ export default function TabMenu({
   megaMenuData,
   isScrolled = false,
 }: TabMenuProps) {
+  const router = useRouter();
   const leaveTimeoutRef = useRef<Map<number, NodeJS.Timeout>>(new Map());
   const currentHoveredRef = useRef<TabItem | null>(hoveredTab);
 
@@ -55,6 +57,14 @@ export default function TabMenu({
     setHoveredTab(item);
   };
 
+  const handleTabClick = (item: TabItem) => {
+    setActiveTab(item);
+    setHoveredTab(null);
+    if (item.href) {
+      router.push(item.href);
+    }
+  };
+
   useEffect(() => {
     const timeoutsMap = leaveTimeoutRef.current;
     return () => {
@@ -70,8 +80,9 @@ export default function TabMenu({
           {items.map((item) => (
             <li key={item.id} className="shrink-0">
               <button
+                type="button"
                 className="relative transition-all duration-150 "
-                onClick={() => setActiveTab(item)}
+                onClick={() => handleTabClick(item)}
                 onMouseEnter={() => handleTabMouseEnter(item)}
                 onMouseLeave={() => handleTabMouseLeave(item)}
               >
@@ -144,6 +155,7 @@ export default function TabMenu({
           <MegaMenu
             hero={megaMenuData.hero}
             columns={megaMenuData.columns || []}
+            footerLink={megaMenuData.footerLink}
             onMouseLeave={() => setHoveredTab(null)}
           />
         </div>

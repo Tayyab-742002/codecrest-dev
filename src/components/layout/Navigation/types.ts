@@ -1,6 +1,8 @@
 export interface TabItem {
   id: number;
   title: string;
+  href: string;
+  matchPrefixes?: string[];
 }
 
 export interface MegaMenuLink {
@@ -24,4 +26,8 @@ export interface NavItem {
   label: string;
   hero: MegaMenuHero;
   columns?: MegaMenuColumn[];
+  footerLink?: {
+    label: string;
+    href: string;
+  };
 }

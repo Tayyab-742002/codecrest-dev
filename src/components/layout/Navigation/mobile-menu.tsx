@@ -2,29 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { X, ChevronRight, ChevronDown } from "lucide-react";
-
-interface NavLink {
-  label: string;
-  href: string;
-  description?: string;
-}
-
-interface NavColumn {
-  title: string;
-  links: NavLink[];
-}
-
-interface NavHero {
-  title: string;
-  description: string;
-}
-
-interface NavItem {
-  id: string;
-  label: string;
-  hero: NavHero;
-  columns?: NavColumn[];
-}
+import type { NavItem } from "./types";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -195,9 +173,13 @@ export default function MobileMenu({
 
         {/* Footer CTA */}
         <div className="shrink-0 px-5 py-4 border-t border-slate-200 bg-white">
-          <button className="w-full h-11 px-5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-150">
+          <Link
+            href="/#contact"
+            onClick={onClose}
+            className="w-full inline-flex h-11 px-5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-150 items-center justify-center"
+          >
             Contact Us
-          </button>
+          </Link>
         </div>
       </div>
     </div>
