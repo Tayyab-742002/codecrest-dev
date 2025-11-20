@@ -158,7 +158,7 @@ export const NAVIGATION_ITEMS: NavItem[] = [
     footerLink: {
       label: "View all services",
       href: "/#services",
-    },
+          },
   },
   {
     id: "3",
