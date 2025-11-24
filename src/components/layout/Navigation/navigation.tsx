@@ -9,7 +9,7 @@ import Link from "next/link";
 import { NavItem } from "./types";
 import { usePathname } from "next/navigation";
 
-export const Navigation = () => {
+export default function Navigation() {
   const [userSelectedTab, setUserSelectedTab] = useState<
     (typeof TAB_ITEMS)[0] | null
   >(null);
@@ -21,7 +21,7 @@ export const Navigation = () => {
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "/";
 
   // Derive matched tab from pathname
   const matchedTab = useMemo(
@@ -48,6 +48,9 @@ export const Navigation = () => {
   };
 
   useEffect(() => {
+    // Only run on client
+    if (typeof window === "undefined") return;
+
     let ticking = false;
 
     const handleScroll = () => {
@@ -61,7 +64,9 @@ export const Navigation = () => {
       }
     };
 
+    // Initial check
     handleScroll();
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -143,4 +148,4 @@ export const Navigation = () => {
       </header>
     </>
   );
-};
+}
