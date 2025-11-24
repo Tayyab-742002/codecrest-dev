@@ -9,7 +9,7 @@ import Link from "next/link";
 import { NavItem } from "./types";
 import { usePathname } from "next/navigation";
 
-export default function Navigation() {
+export const Navigation = () => {
   const [userSelectedTab, setUserSelectedTab] = useState<
     (typeof TAB_ITEMS)[0] | null
   >(null);
@@ -143,4 +143,4 @@ export default function Navigation() {
       </header>
     </>
   );
-}
+};
