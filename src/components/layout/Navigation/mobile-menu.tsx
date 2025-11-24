@@ -110,58 +110,60 @@ export default function MobileMenu({
 
                       {/* Columns */}
                       <div className="space-y-3">
-                        {item.columns && item.columns.map((column, idx) => {
-                          const columnId = `${item.id}-${idx}`;
-                          const isColumnExpanded = expandedColumn === columnId;
+                        {item.columns &&
+                          item.columns.map((column, idx) => {
+                            const columnId = `${item.id}-${idx}`;
+                            const isColumnExpanded =
+                              expandedColumn === columnId;
 
-                          return (
-                            <div key={idx} className="space-y-2">
-                              <button
-                                onClick={() =>
-                                  setExpandedColumn(
-                                    isColumnExpanded ? null : columnId
-                                  )
-                                }
-                                className="w-full flex items-center justify-between py-2 group"
-                              >
-                                <h5 className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-700 transition-colors">
-                                  {column.title}
-                                </h5>
-                                <ChevronRight
-                                  className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${
-                                    isColumnExpanded ? "rotate-90" : ""
-                                  }`}
-                                />
-                              </button>
+                            return (
+                              <div key={idx} className="space-y-2">
+                                <button
+                                  onClick={() =>
+                                    setExpandedColumn(
+                                      isColumnExpanded ? null : columnId
+                                    )
+                                  }
+                                  className="w-full flex items-center justify-between py-2 group"
+                                >
+                                  <h5 className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 group-hover:text-slate-700 transition-colors">
+                                    {column.title}
+                                  </h5>
+                                  <ChevronRight
+                                    className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${
+                                      isColumnExpanded ? "rotate-90" : ""
+                                    }`}
+                                  />
+                                </button>
 
-                              {isColumnExpanded && (
-                                <ul className="space-y-0.5 pl-2">
-                                  {column.links.map((link, linkIdx) => (
-                                    <li key={linkIdx}>
-                                      <Link
-                                        href={link.href}
-                                        className="flex items-center justify-between py-2.5 px-3 -mx-3 rounded-md hover:bg-slate-50 transition-colors duration-150 group"
-                                        onClick={onClose}
-                                      >
-                                        <div className="flex-1 min-w-0">
-                                          <span className="text-sm font-medium text-slate-700 group-hover:text-blue-600 block transition-colors">
-                                            {link.label}
-                                          </span>
-                                          {link.description && (
-                                            <span className="text-xs text-slate-500 block mt-0.5">
-                                              {link.description}
+                                {isColumnExpanded && (
+                                  <ul className="space-y-0.5 pl-2">
+                                    {column.links.map((link, linkIdx) => (
+                                      <li key={linkIdx}>
+                                        <Link
+                                          href={link.href}
+                                          className="flex items-center justify-between py-2.5 px-3 -mx-3 rounded-md hover:bg-slate-50 transition-colors duration-150 group"
+                                          onClick={onClose}
+                                        >
+                                          <div className="flex-1 min-w-0">
+                                            <span className="text-sm font-medium text-slate-700 group-hover:text-blue-600 block transition-colors">
+                                              {link.label}
                                             </span>
-                                          )}
-                                        </div>
-                                        <ChevronRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex-shrink-0 ml-2" />
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              )}
-                            </div>
-                          );
-                        })}
+                                            {link.description && (
+                                              <span className="text-xs text-slate-500 block mt-0.5">
+                                                {link.description}
+                                              </span>
+                                            )}
+                                          </div>
+                                          <ChevronRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity duration-150 shrink-0 ml-2" />
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
+                              </div>
+                            );
+                          })}
                       </div>
                     </div>
                   )}

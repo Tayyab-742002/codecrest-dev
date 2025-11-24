@@ -80,7 +80,7 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-9999 transition-all duration-200 ${
+        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-200 ${
           isScrolled
             ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
             : "bg-transparent border-b border-white/10"

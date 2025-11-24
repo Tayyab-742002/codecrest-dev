@@ -1,6 +1,6 @@
-import { BLOGS_DATA } from "@/src/data/blog.data";
-import { PROJECTS_DATA } from "@/src/data/project.data";
-import { SERVICES_DATA } from "@/src/data/service.data";
+import { BLOGS_DATA } from "../../../data/blog.data";
+import { PROJECTS_DATA } from "../../../data/project.data";
+import { SERVICES_DATA } from "../../../data/service.data";
 import type { NavItem, TabItem } from "./types";
 
 const DEFAULT_SERVICE_HREF = "/services";
