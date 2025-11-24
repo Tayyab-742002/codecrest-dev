@@ -3,8 +3,9 @@
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import MegaMenu from "./MegaMenu";
+
 import type { TabItem, NavItem } from "./types";
+import MegaMenu from "./MegaMenu";
 
 interface TabMenuProps {
   items: TabItem[];
