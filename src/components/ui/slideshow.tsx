@@ -12,7 +12,7 @@ type Slide = {
 const slides: Slide[] = [
   {
     video:
-      "https://pub-20f982007aa54df4849bcd969b89a1bf.r2.dev/background-video-2.mp4",
+      "https://pub-20f982007aa54df4849bcd969b89a1bf.r2.dev/background-video-3.mp4",
     text: ["BUILDING TOMORROW", "TODAY"],
   },
   {

@@ -2,14 +2,13 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { Menu } from "lucide-react";
-
-import MobileMenu from "./mobile-menu";
-
 import Link from "next/link";
-import { NavItem } from "./types";
 import { usePathname } from "next/navigation";
+
 import TabMenu from "./TabMenu";
+import MobileMenu from "./mobile-menu";
 import { NAVIGATION_ITEMS, TAB_ITEMS } from "./config";
+import { NavItem } from "./types";
 
 export default function Navigation() {
   const [userSelectedTab, setUserSelectedTab] = useState<
@@ -82,8 +81,9 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-20        className={`fixed top-0 left-0 right-0 z-9999 transition-all duration-200 ${
-ate-200 shadow-sm"
+        className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-200 ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
             : "bg-transparent border-b border-white/10"
         }`}
         style={{ willChange: "background-color, border-color, box-shadow" }}
@@ -144,7 +144,7 @@ ate-200 shadow-sm"
         <MobileMenu
           isOpen={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
-          navigationItems={NANAVIGATION_ITEMS
+          navigationItems={NAVIGATION_ITEMS}
         />
       </header>
     </>

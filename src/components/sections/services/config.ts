@@ -31,7 +31,7 @@ export const SLIDES = [
   },
   {
     id: "slide-3",
-    title: "BUSINESS-PROCESS-SERVICES",
+    title: "BUSINESS-SERVICES",
     description:
       "We help organizations optimize their business processes, automate workflows, and improve efficiency.",
     imageUrl:
