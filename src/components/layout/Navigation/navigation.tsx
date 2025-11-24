@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Menu } from "lucide-react";
 import TabMenu from "./TabMenu";
 import MobileMenu from "./mobile-menu";
@@ -10,13 +10,42 @@ import { NavItem } from "./types";
 import { usePathname } from "next/navigation";
 
 export default function Navigation() {
-  const [activeTab, setActiveTab] = useState(TAB_ITEMS[0]);
+  const [userSelectedTab, setUserSelectedTab] = useState<
+    (typeof TAB_ITEMS)[0] | null
+  >(null);
+  const [selectionPathname, setSelectionPathname] = useState<string | null>(
+    null
+  );
   const [hoveredTab, setHoveredTab] = useState<(typeof TAB_ITEMS)[0] | null>(
     null
   );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+
+  // Derive matched tab from pathname
+  const matchedTab = useMemo(
+    () =>
+      TAB_ITEMS.find((item) =>
+        item.matchPrefixes?.some((prefix) => pathname.startsWith(prefix))
+      ) ??
+      TAB_ITEMS.find((item) => item.href === pathname) ??
+      TAB_ITEMS[0],
+    [pathname]
+  );
+
+  // Active tab: use user selection only if pathname hasn't changed since selection
+  const activeTab = useMemo(() => {
+    if (userSelectedTab && selectionPathname === pathname) {
+      return userSelectedTab;
+    }
+    return matchedTab;
+  }, [userSelectedTab, matchedTab, pathname, selectionPathname]);
+
+  const setActiveTab = (tab: (typeof TAB_ITEMS)[0]) => {
+    setUserSelectedTab(tab);
+    setSelectionPathname(pathname);
+  };
 
   useEffect(() => {
     let ticking = false;
@@ -36,17 +65,6 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    const matchedTab =
-      TAB_ITEMS.find((item) =>
-        item.matchPrefixes?.some((prefix) => pathname.startsWith(prefix))
-      ) ?? TAB_ITEMS.find((item) => item.href === pathname);
-
-    if (matchedTab && matchedTab.id !== activeTab.id) {
-      setActiveTab(matchedTab);
-    }
-  }, [pathname, activeTab.id]);
 
   const activeMegaMenuData = hoveredTab
     ? NAVIGATION_ITEMS.find(
