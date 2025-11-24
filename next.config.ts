@@ -3,7 +3,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ["cdn.prod.website-files.com"],
     remotePatterns: [
       {
         protocol: "https",
@@ -20,6 +19,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "vmeals.ae",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.prod.website-files.com",
       },
     ],
   },
