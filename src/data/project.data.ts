@@ -882,186 +882,359 @@ export const PROJECTS_DATA: ProjectDetail[] = [
       "VST Inc. empowers enterprises with automation, digital marketing, IT strategy, cloud migration, and cybersecurity solutions to drive innovation and growth.",
   },
   {
-    id: "member-solutions-studio-management-software",
-    slug: "member-solutions-studio-management-software",
-    title: "Member Solutions Membership Management Software",
+    id: "eduportal-school-management-software",
+    slug: "eduportal-school-management-software",
+    title: "EduPortal School & College Management Software",
     subtitle:
-      "Simplifying studio management and growing memberships for martial arts schools, fitness studios, and gyms",
-    category: "Software as a Service",
-    industry: "Fitness & Wellness",
+      "A comprehensive digital platform to simplify school and college administration and enhance learning experience in Pakistan",
+    category: "Education Technology",
+    industry: "Education",
     status: "completed",
-    startedAt: "1991-01-01T00:00:00.000Z",
-    duration: "Ongoing",
+    startedAt: "2022-01-01T00:00:00.000Z",
+    duration: "3 months",
 
     // Hero Section
-    heroImage: "/membersolution-banner.png",
-    heroTitle: "Streamline Studio Operations, Grow Your Membership",
+    heroImage: "/eduportal-banner.png",
+    heroTitle: "Transforming Education Through Technology",
     heroDescription:
-      "Member Solutions automates billing, scheduling, and lead follow-up so studios can focus on training and member engagement, trusted by 7,000+ studios worldwide.",
+      "EduPortal provides modules for timetable management, attendance tracking, online classes, examinations, gradebooks, mobile learning, and hostel management, supporting schools, colleges, and universities.",
 
     // Overview
     overview:
-      "Member Solutions provides an all-in-one platform designed specifically for martial arts schools, fitness studios, and gyms. The software automates critical business processes like class scheduling, membership billing, achievement tracking, and lead management, enabling studios to run efficiently and scale smoothly.",
+      "EduPortal is a leading education management solution in Pakistan designed to streamline academic and administrative processes. It empowers institutions with tools for online learning, real-time attendance, exams management, progress tracking, and secure parent-teacher-student communication, enhancing efficiency and transparency.",
 
     // Objectives
     objectives: [
-      "Automate membership billing and renewals",
-      "Simplify class scheduling and attendance tracking",
-      "Enhance customer engagement with lead follow-up automation",
-      "Provide members with easy self-service access via a member portal",
-      "Support sales of gear and apparel through integrated e-commerce",
-      "Increase member retention through streamlined operations",
+      "Automate academic and administrative workflows",
+      "Enable online and blended learning through digital classrooms",
+      "Provide real-time attendance and performance tracking",
+      "Facilitate seamless communication between parents, teachers, and students",
+      "Manage examinations, grading, and result reporting efficiently",
+      "Support hostel and resource management",
+      "Enhance accessibility through a mobile-friendly platform",
     ],
 
     // Challenges
     challenges: [
       {
-        title: "Manual and Time-Consuming Studio Management",
+        title: "Digital Adoption in Traditional Institutions",
         description:
-          "Studios struggled with managing billing, scheduling, and member follow-ups manually leading to inefficiencies.",
+          "Helping schools and colleges transition from manual processes to integrated digital systems.",
       },
       {
-        title: "Member Engagement and Retention",
+        title: "Ensuring Real-Time Accurate Data",
         description:
-          "Ensuring consistent communication and engagement with members required automation to reduce churn.",
+          "Maintaining up-to-date attendance, grading, and scheduling data accessible to all stakeholders.",
       },
       {
-        title: "Scalability for Growing Studios",
+        title: "Integration Across Departments",
         description:
-          "Providing scalable software that supports multiple locations and a growing membership base.",
+          "Bringing together academic, administrative, and extracurricular management under one platform.",
       },
     ],
 
     // Solutions
     solutions: [
       {
-        title: "Automated Billing and Payment Processing",
+        title: "Modular School Management System",
         description:
-          "Seamlessly manage membership billing, renewals, and payments through a PCI-compliant payment processing platform.",
+          "Includes modules for timetable creation, attendance, gradebooks, examinations, and hostel management to cover end-to-end institutional needs.",
         image:
-          "https://images.unsplash.com/photo-1577846351790-23f1176811a7?q=80&w=1818&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1636772523547-5577d04e8dc1?q=80&w=1166&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        title: "Comprehensive Scheduling and Attendance",
+        title: "Mobile Learning and Communication",
         description:
-          "Easily schedule classes, manage attendance, and track member achievements within a single platform.",
+          "Supports online classes, push notifications, and a parent-teacher-student communication portal accessible via mobile app.",
         image:
-          "https://images.unsplash.com/photo-1546263463-02ec45e884fd?q=80&w=1532&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1758270704522-f091f8064a81?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
       {
-        title: "Lead Management and Marketing Automation",
+        title: "Analytics and Reporting",
         description:
-          "Automate lead follow-ups and marketing campaigns to convert prospects and retain members effectively.",
+          "Real-time progress tracking and comprehensive reports help educators and administrators make data-driven decisions.",
         image:
-          "https://images.unsplash.com/photo-1758691736508-a85d1f7d5a77?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      },
-      {
-        title: "Member Self-Service Portal",
-        description:
-          "Empower members to manage accounts, book classes, make payments, and shop for gear anytime, anywhere.",
-        image:
-          "https://images.unsplash.com/photo-1762330474636-637ce87b268b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "https://images.unsplash.com/photo-1662748562746-380c3f049414?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       },
     ],
 
     // Images
     images: [
       {
-        url: "/membersolution-banner.png",
-        alt: "Studio management software interface",
-        caption: "Streamlined studio management with Member Solutions",
+        url: "/eduportal-banner.png",
+        alt: "EduPortal School Management Interface",
+        caption: "Intuitive user interface for school management",
         type: "hero",
       },
       {
-        url: "/membersolution-banner.png",
-        alt: "Automated billing and payments",
-        caption: "Simplify billing and renewals with automation",
+        url: "/eduportal-banner.png",
+        alt: "School management modules",
+        caption:
+          "Comprehensive modules for academic and administrative management",
         type: "screenshot",
       },
       {
-        url: "/membersolution-banner.png",
-        alt: "Class scheduling system",
-        caption: "Manage class schedules and attendance easily",
+        url: "/eduportal-banner.png",
+        alt: "Mobile learning app interface",
+        caption: "Access learning and communication on the go",
         type: "screenshot",
       },
       {
-        url: "/membersolution-banner.png",
-        alt: "Lead management dashboard",
-        caption: "Automate lead follow-ups to grow membership",
-        type: "screenshot",
-      },
-      {
-        url: "/membersolution-banner.png",
-        alt: "Member self-service portal",
-        caption: "Give members convenient online account access",
+        url: "/eduportal-banner.png",
+        alt: "Performance analytics dashboard",
+        caption: "Monitor student progress and institutional performance",
         type: "screenshot",
       },
     ],
 
     architecture:
-      "Member Solutions operates a cloud-based SaaS platform combining billing, scheduling, and member management with integrated marketing automation and e-commerce features.",
+      "EduPortal is built on a modular microservices architecture with secure APIs enabling integrated management of academic functions, mobile access, and real-time analytics.",
 
     // Metrics
     metrics: [
       {
-        label: "Studios Served",
-        value: "7,000+",
+        label: "Institutions Served",
+        value: "100+",
         context:
-          "Martial arts schools, gyms, and fitness studios globally trusted Member Solutions.",
+          "Schools, colleges, and universities across Pakistan using EduPortal.",
       },
       {
-        label: "Automated Billing Transactions",
-        value: "Millions",
-        context: "Handled securely via the proprietary payment platform.",
+        label: "Active Users",
+        value: "50,000+",
+        context:
+          "Students, teachers, and parents actively engaging with the platform.",
       },
       {
-        label: "Member Retention Improvement",
-        value: "Significant",
+        label: "Modules Included",
+        value: "8+",
         context:
-          "Achieved through automation of engagement and billing processes.",
+          "Core management modules covering various academic and administrative needs.",
       },
     ],
 
     // Key Results
     keyResults: [
-      "Reduced administrative burden enabling staff to focus on training and member experience.",
-      "Increased membership renewals through automated billing and follow-up.",
-      "Scaled with studios as they grow, supporting multi-location management.",
-      "Enabled members with self-service tools increasing satisfaction and convenience.",
+      "Streamlined academic and administrative workflows reducing manual effort.",
+      "Improved communication and transparency between school and parents.",
+      "Enabled remote learning and continuous education through integrated online classrooms.",
+      "Provided actionable analytics fostering data-driven educational decisions.",
     ],
 
     // Team
-    teamSize: 51,
+    teamSize: 30,
     roles: [
-      "Software Developers",
-      "Support Specialists",
-      "Marketing Automation Experts",
-      "Payment Processing Engineers",
-      "Customer Success Managers",
+      "Software Engineers",
+      "UI/UX Designers",
+      "Educational Consultants",
+      "Customer Support Specialists",
+      "Product Managers",
     ],
 
     // Testimonial
     testimonial: {
       quote:
-        "Member Solutions transformed how we manage our studio. Automation of billing and scheduling freed us to focus on our students and grow our business.",
-      author: "Sarah Thompson",
-      role: "Studio Owner",
+        "EduPortal has revolutionized the way we manage academic and administrative tasks. The seamless communication with parents and the mobile learning capabilities have greatly enhanced our school’s efficiency.",
+      author: "Mrs. Ayesha Malik",
+      role: "Principal, Crescent School",
     },
 
     // Tags
     tags: [
-      "Membership Management",
-      "Fitness Software",
-      "Billing Automation",
-      "Scheduling",
-      "Lead Follow-up",
-      "SaaS",
+      "Education Technology",
+      "School Management",
+      "Attendance Tracking",
+      "Online Classes",
+      "Grading System",
+      "Mobile Learning",
+      "Pakistan",
     ],
 
     // Metadata
-    metaTitle: "Member Solutions - Membership Management Software for Studios",
+    metaTitle:
+      "EduPortal - Comprehensive School and College Management Software in Pakistan",
     metaDescription:
-      "Member Solutions offers automated billing, scheduling, and lead follow-up software trusted by over 7,000 studios to simplify fitness and martial arts school management.",
+      "EduPortal offers a full-featured school management system with online classes, attendance tracking, examinations, and mobile learning to transform education administration in Pakistan.",
+  },
+  {
+    id: "evidanza-corporate-performance-management",
+    slug: "evidanza-corporate-performance-management",
+    title: "Evidanza Corporate Performance Management Platform",
+    subtitle:
+      "Integrated CPM solution to monitor, measure, and improve business performance through data-driven insights",
+    category: "Business Intelligence",
+    industry: "Enterprise Software",
+    status: "completed",
+    startedAt: "2023-05-01T00:00:00.000Z",
+    duration: "5 months",
+
+    // Hero Section
+    heroImage: "/evidanza-banner.png",
+    heroTitle: "Optimize Your Business Performance with Evidanza",
+    heroDescription:
+      "Evidanza offers an all-in-one Corporate Performance Management (CPM) platform combining business intelligence, planning, and process management to help companies make strategic decisions based on real-time data.",
+
+    // Overview
+    overview:
+      "Evidanza's CPM platform 'SYNAPSE' integrates business intelligence for data analysis, business planning for strategy formulation, and business process management for workflow optimization. The platform enables companies, especially in the Mittelstand sector, to continuously monitor key performance indicators, evaluate operational data, and enhance decision-making efficiency.",
+
+    // Objectives
+    objectives: [
+      "Provide continuous monitoring and analysis of company performance metrics",
+      "Enable strategic business planning leveraging integrated company data",
+      "Optimize business processes through data-driven analysis and planning",
+      "Automate business applications and data management to improve workflows",
+      "Support enterprise management in informed decision-making",
+    ],
+
+    // Challenges
+    challenges: [
+      {
+        title: "Integrating Disparate Business Data",
+        description:
+          "Collecting and harmonizing data from multiple sources for comprehensive analysis.",
+      },
+      {
+        title: "Real-time Performance Monitoring",
+        description:
+          "Ensuring up-to-date visibility into key business metrics for timely decision-making.",
+      },
+      {
+        title: "Process Optimization Alignment",
+        description:
+          "Aligning various business processes through planning and data insights to drive efficiency.",
+      },
+    ],
+
+    // Solutions
+    solutions: [
+      {
+        title: "Business Intelligence Module",
+        description:
+          "Advanced analytics tools to visualize and analyze enterprise performance data.",
+        image:
+          "https://images.unsplash.com/photo-1686061594183-8c864f508b00?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Business Planning Module",
+        description:
+          "Planning tools integrated with data analytics to support strategic business decisions.",
+        image:
+          "https://images.unsplash.com/photo-1586436008908-49c3fb035022?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Business Process Management",
+        description:
+          "Tools to optimize and automate workflows based on analytic insights.",
+        image:
+          "https://images.unsplash.com/photo-1758876020010-fe9a9d9f8266?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      {
+        title: "Automation Platform",
+        description:
+          "Business apps and data management solutions to automate routine processes.",
+        image:
+          "https://images.unsplash.com/photo-1693045181254-08462917f681?q=80&w=1057&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+    ],
+
+    // Images
+    images: [
+      {
+        url: "/evidanza-banner.png",
+        alt: "Evidanza Corporate Performance Management Dashboard",
+        caption: "Real-time monitoring and analytics with SYNAPSE CPM platform",
+        type: "hero",
+      },
+      {
+        url: "/evidanza-banner.png",
+        alt: "Business intelligence analytics",
+        caption: "Analyze and visualize company data effectively",
+        type: "screenshot",
+      },
+      {
+        url: "/evidanza-banner.png",
+        alt: "Business planning tools",
+        caption: "Strategic planning integrated with performance data",
+        type: "screenshot",
+      },
+      {
+        url: "/evidanza-banner.png",
+        alt: "Business process management",
+        caption: "Optimize workflows and processes based on analytics",
+        type: "screenshot",
+      },
+      {
+        url: "/evidanza-banner.png",
+        alt: "Automation platform",
+        caption: "Automate business applications and data handling",
+        type: "screenshot",
+      },
+    ],
+
+    architecture:
+      "Evidanza SYNAPSE platform integrates BI, planning, process management, and automation in a modular architecture that supports real-time data flow and enterprise-wide strategic decision making.",
+
+    // Metrics
+    metrics: [
+      {
+        label: "Key Performance Indicators Monitored",
+        value: "100+",
+        context: "Across multiple industries for continuous business insight.",
+      },
+      {
+        label: "Client Companies",
+        value: "50+",
+        context: "Medium-sized enterprises using Evidanza SYNAPSE.",
+      },
+      {
+        label: "Automated Processes",
+        value: "Thousands",
+        context:
+          "Routine business workflows streamlined with Evidanza solutions.",
+      },
+    ],
+
+    // Key Results
+    keyResults: [
+      "Improved decision-making speed through real-time business intelligence.",
+      "Enhanced operational efficiency by optimizing business processes.",
+      "Reduced manual workload via automation of routine tasks.",
+      "Enabled data-driven strategic planning to support growth.",
+    ],
+
+    // Team
+    teamSize: 40,
+    roles: [
+      "Business Intelligence Analysts",
+      "Software Developers",
+      "Process Consultants",
+      "Automation Engineers",
+      "Project Managers",
+    ],
+
+    // Testimonial
+    testimonial: {
+      quote:
+        "Evidanza’s integrated CPM platform has significantly improved our ability to monitor performance and make strategic decisions faster. The automation tools have freed our staff to focus on high-impact activities.",
+      author: "Dr. Martin Schneider",
+      role: "CEO, Mittelstand Corporation",
+    },
+
+    // Tags
+    tags: [
+      "CPM",
+      "Business Intelligence",
+      "Business Planning",
+      "Process Management",
+      "Automation",
+      "Enterprise Software",
+    ],
+
+    // Metadata
+    metaTitle:
+      "Evidanza SYNAPSE - Corporate Performance Management & Business Intelligence",
+    metaDescription:
+      "Evidanza offers a comprehensive CPM platform combining business intelligence, strategic planning, process management, and automation to optimize medium-sized business performance.",
   },
 ];
 

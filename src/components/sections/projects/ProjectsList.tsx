@@ -10,7 +10,7 @@ const projects = getAllProjects();
 const getStatusColor = (status: string) => {
   switch (status) {
     case "completed":
-      return "bg-green-600 from-green-600";
+      return "bg-green-600/80 from-green-600";
     case "in-progress":
       return "bg-blue-600 from-blue-600";
     case "on-hold":
@@ -109,7 +109,7 @@ export default function ProjectsList() {
 
                 {/* Bottom Info (Visible by default, hidden on hover) */}
                 <article
-                  className={`p-4 sm:p-6 md:p-8 w-full flex flex-col justify-end overflow-hidden absolute bottom-0 opacity-100 group-hover:opacity-0 group-hover:-bottom-4 transition-all duration-300 bg-gradient-to-t ${statusColors} text-white`}
+                  className={`p-4 sm:p-6 md:p-8 w-full flex flex-col justify-end overflow-hidden absolute bottom-0 opacity-100 group-hover:opacity-0 group-hover:-bottom-4 transition-all duration-300 bg-linear-to-t ${statusColors} text-white`}
                 >
                   <div className="flex items-center gap-2 mb-2">
                     {getStatusIcon(project.status)}
