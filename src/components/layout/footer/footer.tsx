@@ -6,7 +6,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { siteConfig } from "./config";
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -845,28 +845,10 @@ export type SiteConfig = typeof siteConfig;
 export const Footer = () => {
   const socialLinks = [
     {
-      id: "twitter",
-      label: "Twitter",
-      href: siteConfig.company.socials.twitter,
-      icon: Twitter,
-    },
-    {
       id: "linkedin",
       label: "LinkedIn",
       href: siteConfig.company.socials.linkedin,
       icon: Linkedin,
-    },
-    {
-      id: "github",
-      label: "GitHub",
-      href: siteConfig.company.socials.github,
-      icon: Github,
-    },
-    {
-      id: "instagram",
-      label: "Instagram",
-      href: siteConfig.company.socials.instagram,
-      icon: Instagram,
     },
   ].filter((link) => Boolean(link.href));
 

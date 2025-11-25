@@ -1,50 +1,33 @@
 import React from "react";
 
 import { TeamSection } from "@/src/components/ui/team-section";
-import {
-  Twitter,
-  Facebook,
-  Instagram,
-  Github,
-  Linkedin,
-} from "lucide-react";
+import { Linkedin } from "lucide-react";
+import { COMPANY_LINKEDIN_URL } from "@/src/lib/constants/contact";
 
 const leadershipMembers = [
   {
     name: "Méschac Irung",
     designation: "Creator",
     imageSrc: "https://avatars.githubusercontent.com/u/47919550?v=4",
-    socialLinks: [
-      { icon: Twitter, href: "#" },
-      { icon: Linkedin, href: "#" },
-    ],
+    socialLinks: [{ icon: Linkedin, href: COMPANY_LINKEDIN_URL }],
   },
   {
     name: "Théo Balick",
     designation: "Frontend Dev",
     imageSrc: "https://avatars.githubusercontent.com/u/68236786?v=4",
-    socialLinks: [
-      { icon: Github, href: "#" },
-      { icon: Twitter, href: "#" },
-    ],
+    socialLinks: [{ icon: Linkedin, href: COMPANY_LINKEDIN_URL }],
   },
   {
     name: "Glodie Lukose",
     designation: "Frontend Dev",
     imageSrc: "https://avatars.githubusercontent.com/u/99137927?v=4",
-    socialLinks: [
-      { icon: Facebook, href: "#" },
-      { icon: Instagram, href: "#" },
-    ],
+    socialLinks: [{ icon: Linkedin, href: COMPANY_LINKEDIN_URL }],
   },
   {
     name: "Bernard Ngandu",
     designation: "Backend Dev",
     imageSrc: "https://avatars.githubusercontent.com/u/31113941?v=4",
-    socialLinks: [
-      { icon: Github, href: "#" },
-      { icon: Linkedin, href: "#" },
-    ],
+    socialLinks: [{ icon: Linkedin, href: COMPANY_LINKEDIN_URL }],
   },
 ];
 

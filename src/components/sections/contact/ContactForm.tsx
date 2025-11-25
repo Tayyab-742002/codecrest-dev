@@ -5,33 +5,18 @@ import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 import { Textarea } from "@/src/components/ui/textarea";
 import { Label } from "@/src/components/ui/label";
-import { Checkbox } from "@/src/components/ui/checkbox";
-import { Github, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Linkedin } from "lucide-react";
+import {
+  CONTACT_EMAIL,
+  COMPANY_LINKEDIN_URL,
+} from "@/src/lib/constants/contact";
 
 const socialLinks = [
   {
-    id: "1",
-    name: "GitHub",
-    icon: Github,
-    href: "https://github.com/codecrest",
-  },
-  {
-    id: "2",
-    name: "Twitter",
-    icon: Twitter,
-    href: "https://twitter.com/codecrest",
-  },
-  {
-    id: "3",
+    id: "linkedin",
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://linkedin.com/company/codecrest",
-  },
-  {
-    id: "4",
-    name: "Instagram",
-    icon: Instagram,
-    href: "https://instagram.com/codecrest",
+    href: COMPANY_LINKEDIN_URL,
   },
 ];
 
@@ -40,35 +25,12 @@ export default function ContactForm() {
     name: "",
     email: "",
     message: "",
-    projectType: [] as string[],
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const contactEmail = "hello@codecrest.com";
-
-  // Generate bubble positions and properties once using lazy initializer
-  const [bubbleData] = useState<
-    Array<{
-      width: number;
-      height: number;
-      left: number;
-      delay: number;
-      duration: number;
-      top: number;
-      xOffset: number;
-    }>
-  >(() =>
-    Array.from({ length: 15 }).map(() => ({
-      width: Math.random() * 20 + 10,
-      height: Math.random() * 20 + 10,
-      left: Math.random() * 100,
-      delay: Math.random() * 10,
-      duration: Math.random() * 20 + 10,
-      top: Math.random() * 100,
-      xOffset: Math.random() > 0.5 ? 1 : -1,
-    }))
-  );
+  const contactEmail = CONTACT_EMAIL;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -77,47 +39,48 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleCheckboxChange = (type: string, checked: boolean) => {
-    setFormData((prev) => {
-      const currentTypes = prev.projectType;
-      if (checked) {
-        return { ...prev, projectType: [...currentTypes, type] };
-      } else {
-        return { ...prev, projectType: currentTypes.filter((t) => t !== type) };
-      }
-    });
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
     setIsSubmitting(true);
+    setIsSubmitted(false);
+    setErrorMessage(null);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-      projectType: [],
-    });
+      const data = await response.json().catch(() => ({}));
 
-    setTimeout(() => setIsSubmitted(false), 5000);
+      if (!response.ok) {
+        throw new Error(data?.error ?? "Unable to send message right now.");
+      }
+
+      setIsSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (error) {
+      console.error("Contact form submission failed:", error);
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
-  const projectTypeOptions = [
-    "Website",
-    "Mobile App",
-    "Web App",
-    "E-Commerce",
-    "Brand Identity",
-    "3D & Animation",
-    "Social Media Marketing",
-    "Brand Strategy & Consulting",
-    "Other",
-  ];
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-[#050505]">
@@ -206,6 +169,11 @@ export default function ContactForm() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <p className="text-white/60">Leave us a brief message</p>
+                {errorMessage && (
+                  <p className="text-sm text-red-400 bg-red-500/10 border border-red-500/30 rounded-md px-3 py-2">
+                    {errorMessage}
+                  </p>
+                )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-white/80">
@@ -251,29 +219,6 @@ export default function ContactForm() {
                     onChange={handleChange}
                     required
                   />
-                </div>
-
-                <div className="space-y-4">
-                  <p className="text-white/60">I&apos;m looking for...</p>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                    {projectTypeOptions.map((option) => (
-                      <div key={option} className="flex items-center space-x-2">
-                        <Checkbox
-                          id={option.replace(/\s/g, "-").toLowerCase()}
-                          checked={formData.projectType.includes(option)}
-                          onCheckedChange={(checked: boolean) =>
-                            handleCheckboxChange(option, checked)
-                          }
-                        />
-                        <Label
-                          htmlFor={option.replace(/\s/g, "-").toLowerCase()}
-                          className="text-sm font-normal cursor-pointer text-white/80"
-                        >
-                          {option}
-                        </Label>
-                      </div>
-                    ))}
-                  </div>
                 </div>
 
                 <Button

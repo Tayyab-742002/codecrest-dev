@@ -9,38 +9,24 @@ import {
   Mail,
   MapPin,
   Phone,
-  Github,
-  Twitter,
   Linkedin,
-  Instagram,
 } from "lucide-react";
 import { Button, ButtonProps } from "@/src/components/ui/button";
+import {
+  CONTACT_EMAIL,
+  COMPANY_LINKEDIN_URL,
+} from "@/src/lib/constants/contact";
 
-const APP_EMAIL = "hello@codecrest.com";
+const APP_EMAIL = CONTACT_EMAIL;
 const APP_PHONE = "+1 (555) 123-4567";
 const APP_PHONE_2 = "+1 (555) 987-6543";
 
 export default function ContactInfo() {
   const socialLinks = [
     {
-      icon: Github,
-      href: "https://github.com/codecrest",
-      label: "GitHub",
-    },
-    {
-      icon: Twitter,
-      href: "https://twitter.com/codecrest",
-      label: "Twitter",
-    },
-    {
       icon: Linkedin,
-      href: "https://linkedin.com/company/codecrest",
+      href: COMPANY_LINKEDIN_URL,
       label: "LinkedIn",
-    },
-    {
-      icon: Instagram,
-      href: "https://instagram.com/codecrest",
-      label: "Instagram",
     },
   ];
 
@@ -129,7 +115,7 @@ export default function ContactInfo() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-100 hover:bg-gray-400 flex items-center gap-x-2 rounded-full border border-gray-400 px-4 py-2 transition-colors"
+                  className="bg-gray-100 hover:bg-gray-400 flex flex-1 justify-center items-center gap-x-2 rounded-md border border-gray-400 px-4 py-2 transition-colors"
                 >
                   <link.icon className="size-4 text-gray-700" />
                   <span className="font-mono text-sm font-medium tracking-wide text-gray-700">
@@ -172,9 +158,7 @@ function Box({
         </h2>
       </div>
       <div className="flex items-center gap-x-2 p-4 py-12">{children}</div>
-      <div className="border-t border-gray-400 p-4">
-        <p className="text-gray-600 text-sm">{description}</p>
-      </div>
+      <div className="border-t border-gray-400 p-4"></div>
     </div>
   );
 }
