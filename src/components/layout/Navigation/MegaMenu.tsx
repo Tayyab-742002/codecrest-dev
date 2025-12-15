@@ -55,14 +55,14 @@ export default function MegaMenu({
 
   return (
     <div
-      className="absolute left-1/2 transform shadow-2xl -translate-x-1/2 mt-1 w-screen max-w-[1400px] animate-in fade-in slide-in-from-top-1 duration-200 z-50 px-4"
+      className="fixed inset-x-0 top-[4.25rem] z-50 animate-in fade-in slide-in-from-top-1 duration-200 px-4 sm:px-6 lg:px-8"
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
       style={{ backfaceVisibility: "hidden", perspective: "1000px" }}
     >
-      <div className=" bg-white border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-xl overflow-hidden">
+      <div className="mx-auto w-full max-w-[1400px] max-h-[calc(100vh-5rem)] overflow-y-auto overflow-x-hidden border border-slate-200/80 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] backdrop-blur-xl">
         <div className="p-6 sm:p-8 lg:p-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 lg:gap-8">
             {/* Hero Column - Enhanced */}
             <div className="space-y-4 pb-6 sm:pb-0 sm:pr-6 border-b sm:border-b-0 sm:border-r border-slate-200/60">
               <div className="space-y-3">
@@ -132,7 +132,7 @@ export default function MegaMenu({
               const hasLinks = column.links && column.links.length > 0;
 
               return (
-                <div key={idx} className="space-y-4 pl-4">
+                <div key={idx} className="space-y-4 sm:pl-0 lg:pl-4">
                   <div className="flex items-center gap-2 pb-2 border-b border-slate-200/60">
                     <h4 className="text-[11px] font-bold uppercase tracking-wider text-black border-b border-purple-600">
                       {column.title}
