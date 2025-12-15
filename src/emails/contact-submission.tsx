@@ -23,7 +23,9 @@ export function ContactSubmissionEmail({
     card: "#FFFFFF",
     text: "#0F172A",
     muted: "#475569",
-    border: "#E2E8F0",
+    // Darker borders for better visibility across email clients (some lighten thin lines).
+    border: "#CBD5E1",
+    borderStrong: "#94A3B8",
     accent: "#6D28D9",
     subtleAccentBg: "#F5F3FF",
   } as const;
@@ -76,7 +78,7 @@ export function ContactSubmissionEmail({
                   maxWidth: "640px",
                   width: "100%",
                   backgroundColor: colors.card,
-                  border: `1px solid ${colors.border}`,
+                  border: `2px solid ${colors.borderStrong}`,
                   borderRadius: "14px",
                   overflow: "hidden",
                 }}
@@ -87,7 +89,7 @@ export function ContactSubmissionEmail({
                     <td
                       style={{
                         padding: "20px 24px",
-                        borderBottom: `1px solid ${colors.border}`,
+                        borderBottom: `1px solid ${colors.borderStrong}`,
                         backgroundColor: "#FFFFFF",
                       }}
                     >
@@ -134,7 +136,7 @@ export function ContactSubmissionEmail({
                                   borderRadius: "999px",
                                   backgroundColor: colors.subtleAccentBg,
                                   color: colors.accent,
-                                  border: `1px solid ${colors.border}`,
+                                  border: `1px solid ${colors.borderStrong}`,
                                   fontSize: "12px",
                                   fontWeight: 700,
                                 }}
@@ -191,7 +193,7 @@ export function ContactSubmissionEmail({
                         role="presentation"
                         style={{
                           width: "100%",
-                          border: `1px solid ${colors.border}`,
+                          border: `1px solid ${colors.borderStrong}`,
                           borderRadius: "12px",
                           overflow: "hidden",
                         }}
@@ -201,7 +203,7 @@ export function ContactSubmissionEmail({
                             <td
                               style={{
                                 padding: "12px 14px",
-                                borderBottom: `1px solid ${colors.border}`,
+                                borderBottom: `1px solid ${colors.borderStrong}`,
                                 backgroundColor: "#FFFFFF",
                               }}
                             >
@@ -273,14 +275,14 @@ export function ContactSubmissionEmail({
                       <div
                         style={{
                           borderRadius: "12px",
-                          border: `1px solid ${colors.border}`,
+                          border: `1px solid ${colors.borderStrong}`,
                           backgroundColor: "#FFFFFF",
                         }}
                       >
                         <div
                           style={{
                             padding: "12px 14px",
-                            borderBottom: `1px solid ${colors.border}`,
+                            borderBottom: `1px solid ${colors.borderStrong}`,
                             fontSize: "12px",
                             fontWeight: 700,
                             color: colors.muted,
