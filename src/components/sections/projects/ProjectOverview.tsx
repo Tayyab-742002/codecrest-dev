@@ -1,14 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useRef } from "react";
-
-import { Plus } from "lucide-react";
-import {
-  Accordion,
-  AccordionHeader,
-  AccordionItem,
-  AccordionPanel,
-} from "../../ui/accordtion";
 import { TimelineContent } from "../../ui/TimelineContent";
 import VerticalCutReveal from "../../ui/vertical-cut-reveal";
 
@@ -126,7 +118,7 @@ export default function ProjectOverview({ project }: ProjectOverviewProps) {
           </div>
         </TimelineContent>
 
-        {/* Objectives Accordion */}
+        {/* Objectives (always visible) */}
         {project.objectives && project.objectives.length > 0 && (
           <div className="py-10">
             <TimelineContent
@@ -139,54 +131,25 @@ export default function ProjectOverview({ project }: ProjectOverviewProps) {
               </h2>
             </TimelineContent>
 
-            <Accordion defaultValue="item-0">
-              {project.objectives.map((objective, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="mb-0 rounded-none bg-transparent w-full"
-                >
-                  <TimelineContent
-                    animationNum={index + 2}
-                    timelineRef={timelineRef}
-                    customVariants={revealVariants}
-                    className="border-t border-neutral-800 py-2"
-                  >
-                    <AccordionHeader
-                      customIcon
-                      className="hover:no-underline p-0 py-2 relative data-[active]:bg-transparent hover:bg-transparent text-black sm:text-base text-sm"
-                    >
-                      <p className="md:text-8xl sm:text-6xl text-3xl sm:font-extralight font-normal text-black/20 uppercase">
-                        \{String(index + 1).padStart(2, "0")}
-                      </p>
-                      <div className="lg:w-[40rem] md:w-[30rem] sm:w-96 flex items-center justify-between">
-                        <h3 className="font-medium md:text-4xl sm:text-3xl text-xl uppercase">
-                          Objective {index + 1}
-                        </h3>
-
-                        <span className="relative group-data-[active]:rotate-90 text-neutral-600 p-2 -translate-x-1 rounded-xl">
-                          <Plus className="group-data-[active]:rotate-90 transition-all duration-300" />
-                        </span>
-                      </div>
-                    </AccordionHeader>
-                  </TimelineContent>
-                  <TimelineContent
-                    animationNum={index + 2}
-                    timelineRef={timelineRef}
-                    customVariants={revealVariants}
-                  >
-                    <AccordionPanel
-                      className="space-y-4 w-full mx-auto bg-transparent data-[active]:bg-transparent px-0"
-                      articleClassName="pt-2 px-0 bg-transparent w-[40rem] ml-auto"
-                    >
-                      <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                        {objective}
-                      </p>
-                    </AccordionPanel>
-                  </TimelineContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <TimelineContent
+              animationNum={2}
+              timelineRef={timelineRef}
+              customVariants={revealVariants}
+              className="border-t border-neutral-800 pt-6"
+            >
+              <div className="w-full max-w-[40rem] ml-auto space-y-4">
+                {project.objectives.map((objective, index) => (
+                  <div key={`${index}-${objective}`} className="flex gap-4">
+                    <span className="shrink-0 mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-300 bg-white text-sm font-semibold text-slate-700">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                      {objective}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </TimelineContent>
           </div>
         )}
       </div>

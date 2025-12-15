@@ -24,6 +24,42 @@ export async function POST(request: Request) {
       );
     }
 
+    /**
+     * Resend requires the **sender** domain (`from`) to be a verified domain in your Resend account.
+     * You can still deliver to Gmail/Outlook/etc via `to`.
+     */
+    const toEmail = (process.env.CONTACT_TO_EMAIL ?? CONTACT_EMAIL).trim();
+    const fromEmail = process.env.RESEND_FROM_EMAIL?.trim();
+    const fromName =
+      (process.env.RESEND_FROM_NAME ?? CONTACT_DISPLAY_NAME).trim();
+
+    if (!toEmail) {
+      return NextResponse.json(
+        { error: "Recipient email is not configured." },
+        { status: 500 }
+      );
+    }
+
+    if (!fromEmail) {
+      return NextResponse.json(
+        {
+          error:
+            "Sender email is not configured. Set RESEND_FROM_EMAIL to an address on your verified domain (e.g. no-reply@yourdomain.com).",
+        },
+        { status: 500 }
+      );
+    }
+
+    if (/@gmail\.com$/i.test(fromEmail)) {
+      return NextResponse.json(
+        {
+          error:
+            "Invalid RESEND_FROM_EMAIL: gmail.com cannot be used as a sender domain in Resend. Use an address on your verified domain for the FROM field; Gmail can be used as the TO recipient.",
+        },
+        { status: 500 }
+      );
+    }
+
     const body = (await request.json()) as ContactRequestBody;
     const name = body.name?.trim();
     const email = body.email?.trim();
@@ -42,12 +78,18 @@ export async function POST(request: Request) {
 
     // Render the React email component to HTML
     const emailHtml = await render(
-      ContactSubmissionEmail({ name, email, message })
+      ContactSubmissionEmail({
+        name,
+        email,
+        message,
+        inboxEmail: toEmail,
+        brandName: fromName,
+      })
     );
 
     const result = await resend.emails.send({
-      from: `${CONTACT_DISPLAY_NAME} <${CONTACT_EMAIL}>`,
-      to: CONTACT_EMAIL,
+      from: `${fromName} <${fromEmail}>`,
+      to: toEmail,
       replyTo: email,
       subject: `New contact inquiry from ${name}`,
       html: emailHtml,

@@ -1,140 +1,337 @@
 import * as React from "react";
-import {
-  CONTACT_EMAIL,
-  CONTACT_DISPLAY_NAME,
-} from "@/src/lib/constants/contact";
 
 type ContactSubmissionEmailProps = {
   name: string;
   email: string;
   message: string;
+  inboxEmail: string;
+  brandName: string;
 };
 
 export function ContactSubmissionEmail({
   name,
   email,
   message,
+  inboxEmail,
+  brandName,
 }: ContactSubmissionEmailProps) {
+  const safeMessage = message.trim();
+  const preheader = `New contact inquiry from ${name}`;
+
+  const colors = {
+    bg: "#F6F7FB",
+    card: "#FFFFFF",
+    text: "#0F172A",
+    muted: "#475569",
+    border: "#E2E8F0",
+    accent: "#6D28D9",
+    subtleAccentBg: "#F5F3FF",
+  } as const;
+
   return (
     <div
       style={{
-        fontFamily: "'Nunito', 'Segoe UI', sans-serif",
-        backgroundColor: "#050505",
-        padding: "32px",
-        color: "#f5f5f5",
+        margin: 0,
+        padding: 0,
+        backgroundColor: colors.bg,
+        color: colors.text,
+        fontFamily:
+          "ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'",
       }}
     >
+      {/* Hidden preheader text */}
+      <div
+        style={{
+          display: "none",
+          overflow: "hidden",
+          lineHeight: "1px",
+          opacity: 0,
+          maxHeight: 0,
+          maxWidth: 0,
+        }}
+      >
+        {preheader}
+      </div>
+
       <table
         width="100%"
         cellPadding={0}
         cellSpacing={0}
+        role="presentation"
         style={{
-          maxWidth: "640px",
-          margin: "0 auto",
-          background:
-            "linear-gradient(135deg, rgba(15,23,42,0.95), rgba(9,9,11,0.95))",
-          borderRadius: "20px",
-          border: "1px solid rgba(148,163,184,0.2)",
-          boxShadow: "0 30px 80px rgba(0,0,0,0.35)",
+          width: "100%",
+          backgroundColor: colors.bg,
+          padding: "32px 16px",
         }}
       >
         <tbody>
           <tr>
-            <td style={{ padding: "32px" }}>
-              <div
+            <td align="center">
+              <table
+                width="100%"
+                cellPadding={0}
+                cellSpacing={0}
+                role="presentation"
                 style={{
-                  textTransform: "uppercase",
-                  letterSpacing: "0.3em",
-                  fontSize: "12px",
-                  color: "#a5b4fc",
-                  marginBottom: "12px",
+                  maxWidth: "640px",
+                  width: "100%",
+                  backgroundColor: colors.card,
+                  border: `1px solid ${colors.border}`,
+                  borderRadius: "14px",
+                  overflow: "hidden",
                 }}
               >
-                New inquiry
-              </div>
-              <h1
-                style={{
-                  fontSize: "32px",
-                  margin: "0 0 20px",
-                  color: "#f8fafc",
-                }}
-              >
-                {CONTACT_DISPLAY_NAME}
-              </h1>
-              <p
-                style={{
-                  margin: "0 0 32px",
-                  color: "#cbd5f5",
-                  lineHeight: 1.6,
-                }}
-              >
-                You just received a new message from the contact page. Reply
-                directly to the sender or continue the conversation via your
-                shared inbox <strong>{CONTACT_EMAIL}</strong>.
-              </p>
+                <tbody>
+                  {/* Header */}
+                  <tr>
+                    <td
+                      style={{
+                        padding: "20px 24px",
+                        borderBottom: `1px solid ${colors.border}`,
+                        backgroundColor: "#FFFFFF",
+                      }}
+                    >
+                      <table
+                        width="100%"
+                        cellPadding={0}
+                        cellSpacing={0}
+                        role="presentation"
+                      >
+                        <tbody>
+                          <tr>
+                            <td style={{ verticalAlign: "middle" }}>
+                              <div
+                                style={{
+                                  fontSize: "13px",
+                                  fontWeight: 700,
+                                  color: colors.text,
+                                  letterSpacing: "-0.01em",
+                                }}
+                              >
+                                {brandName}
+                              </div>
+                              <div
+                                style={{
+                                  marginTop: "4px",
+                                  fontSize: "13px",
+                                  color: colors.muted,
+                                }}
+                              >
+                                New contact inquiry
+                              </div>
+                            </td>
+                            <td
+                              align="right"
+                              style={{
+                                verticalAlign: "middle",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  display: "inline-block",
+                                  padding: "6px 10px",
+                                  borderRadius: "999px",
+                                  backgroundColor: colors.subtleAccentBg,
+                                  color: colors.accent,
+                                  border: `1px solid ${colors.border}`,
+                                  fontSize: "12px",
+                                  fontWeight: 700,
+                                }}
+                              >
+                                New
+                              </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
 
-              <div
-                style={{
-                  borderRadius: "16px",
-                  padding: "24px",
-                  background:
-                    "linear-gradient(120deg, rgba(79,70,229,0.15), rgba(236,72,153,0.1))",
-                  border: "1px solid rgba(94,96,206,0.35)",
-                  marginBottom: "24px",
-                }}
-              >
-                <table
-                  width="100%"
-                  cellPadding={0}
-                  cellSpacing={0}
-                  style={{ fontSize: "15px", color: "#f8fafc" }}
-                >
-                  <tbody>
-                    <tr>
-                      <td style={{ paddingBottom: "16px" }}>
-                        <strong style={{ color: "#cbd5f5" }}>Name</strong>
-                        <div style={{ marginTop: "4px" }}>{name}</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style={{ paddingBottom: "16px" }}>
-                        <strong style={{ color: "#cbd5f5" }}>Email</strong>
-                        <div style={{ marginTop: "4px" }}>{email}</div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong style={{ color: "#cbd5f5" }}>Message</strong>
+                  {/* Body intro */}
+                  <tr>
+                    <td style={{ padding: "22px 24px 0" }}>
+                      <h1
+                        style={{
+                          margin: 0,
+                          fontSize: "18px",
+                          lineHeight: 1.4,
+                          color: colors.text,
+                        }}
+                      >
+                        Message from {name}
+                      </h1>
+                      <p
+                        style={{
+                          margin: "10px 0 0",
+                          fontSize: "14px",
+                          lineHeight: 1.7,
+                          color: colors.muted,
+                        }}
+                      >
+                        Reply directly to this email to respond (Reply-To is set
+                        to{" "}
+                        <strong style={{ color: colors.text }}>{email}</strong>)
+                        or follow up via your inbox{" "}
+                        <strong style={{ color: colors.text }}>
+                          {inboxEmail}
+                        </strong>
+                        .
+                      </p>
+                    </td>
+                  </tr>
+
+                  {/* Details */}
+                  <tr>
+                    <td style={{ padding: "16px 24px 0" }}>
+                      <table
+                        width="100%"
+                        cellPadding={0}
+                        cellSpacing={0}
+                        role="presentation"
+                        style={{
+                          width: "100%",
+                          border: `1px solid ${colors.border}`,
+                          borderRadius: "12px",
+                          overflow: "hidden",
+                        }}
+                      >
+                        <tbody>
+                          <tr>
+                            <td
+                              style={{
+                                padding: "12px 14px",
+                                borderBottom: `1px solid ${colors.border}`,
+                                backgroundColor: "#FFFFFF",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  fontSize: "12px",
+                                  color: colors.muted,
+                                  marginBottom: "4px",
+                                }}
+                              >
+                                From
+                              </div>
+                              <div
+                                style={{
+                                  fontSize: "14px",
+                                  fontWeight: 700,
+                                  color: colors.text,
+                                }}
+                              >
+                                {name}
+                              </div>
+                              <div
+                                style={{
+                                  marginTop: "2px",
+                                  fontSize: "13px",
+                                  color: colors.muted,
+                                  wordBreak: "break-word",
+                                }}
+                              >
+                                {email}
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              style={{
+                                padding: "12px 14px",
+                                backgroundColor: "#FFFFFF",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  fontSize: "12px",
+                                  color: colors.muted,
+                                  marginBottom: "4px",
+                                }}
+                              >
+                                Inbox
+                              </div>
+                              <div
+                                style={{
+                                  fontSize: "13px",
+                                  color: colors.text,
+                                  wordBreak: "break-word",
+                                }}
+                              >
+                                {inboxEmail}
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+
+                  {/* Message */}
+                  <tr>
+                    <td style={{ padding: "16px 24px 0" }}>
+                      <div
+                        style={{
+                          borderRadius: "12px",
+                          border: `1px solid ${colors.border}`,
+                          backgroundColor: "#FFFFFF",
+                        }}
+                      >
                         <div
                           style={{
-                            marginTop: "12px",
-                            padding: "16px",
-                            borderRadius: "12px",
-                            backgroundColor: "rgba(15,23,42,0.6)",
-                            border: "1px solid rgba(148,163,184,0.3)",
-                            color: "#e2e8f0",
-                            lineHeight: 1.6,
-                            whiteSpace: "pre-wrap",
+                            padding: "12px 14px",
+                            borderBottom: `1px solid ${colors.border}`,
+                            fontSize: "12px",
+                            fontWeight: 700,
+                            color: colors.muted,
+                            letterSpacing: "0.08em",
+                            textTransform: "uppercase",
                           }}
                         >
-                          {message}
+                          Message
                         </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                        <div
+                          style={{
+                            padding: "14px",
+                            fontSize: "14px",
+                            lineHeight: 1.8,
+                            color: colors.text,
+                            whiteSpace: "pre-wrap",
+                            wordBreak: "break-word",
+                          }}
+                        >
+                          {safeMessage}
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
 
-              <p
+                  {/* Footer */}
+                  <tr>
+                    <td style={{ padding: "18px 24px 22px" }}>
+                      <div
+                        style={{
+                          fontSize: "12px",
+                          lineHeight: 1.6,
+                          color: colors.muted,
+                        }}
+                      >
+                        This message was sent from the {brandName} contact form.
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div
                 style={{
-                  fontSize: "13px",
-                  color: "#94a3b8",
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
+                  marginTop: "12px",
+                  fontSize: "11px",
+                  color: "#64748B",
                 }}
               >
-                Sent automatically from codecrest.tech
-              </p>
+                © {new Date().getFullYear()} {brandName}
+              </div>
             </td>
           </tr>
         </tbody>
@@ -142,4 +339,3 @@ export function ContactSubmissionEmail({
     </div>
   );
 }
-
