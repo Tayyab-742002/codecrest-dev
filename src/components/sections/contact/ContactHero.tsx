@@ -174,14 +174,14 @@ export default function ContactHero() {
       </div>
 
       {/* Header */}
-      <header className="header">
+      {/* <header className="header">
         <Link className="brand" href="/">
           CODECREST
         </Link>
         <Link className="cta" href="/contact">
           Contact
         </Link>
-      </header>
+      </header> */}
 
       {/* Hero */}
       <main className="hero">

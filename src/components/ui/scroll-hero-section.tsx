@@ -101,10 +101,10 @@ export function AboutScrollSection({
                     className={`${styles.word}`}
                     style={{ "--i": String(index) } as CSSProperties}
                   >
-                {word}
-              </li>
-            ))}
-          </ul>
+                    {word}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

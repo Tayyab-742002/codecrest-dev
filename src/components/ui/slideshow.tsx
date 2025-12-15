@@ -347,10 +347,10 @@ export default function Slideshow() {
       </div>
 
       {/* Counter */}
-      <div className="absolute top-8 right-8 z-30 text-white text-sm font-medium bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+      {/* <div className="absolute top-8 right-8 z-30 text-white text-sm font-medium bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
         {String(current + 1).padStart(2, "0")} /{" "}
         {String(slides.length).padStart(2, "0")}
-      </div>
+      </div> */}
 
       {/* GET IN TOUCH Button - Static, always visible */}
       {/* <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30">
