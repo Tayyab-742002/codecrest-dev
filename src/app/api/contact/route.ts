@@ -125,3 +125,45 @@ export async function POST(request: Request) {
   }
 }
 
+
+      })
+    );
+
+    const result = await resend.emails.send({
+      from: `${fromName} <${fromEmail}>`,
+      to: toEmail,
+      replyTo: email,
+      subject: `New contact inquiry from ${name}`,
+      html: emailHtml,
+    });
+
+    // Check if Resend returned an error
+    if (result.error) {
+      console.error("Resend API error:", result.error);
+      return NextResponse.json(
+        {
+          error: result.error.message || "Failed to send email. Please check your Resend configuration.",
+        },
+        { status: 500 }
+      );
+    }
+
+    console.log("Email sent successfully:", result.data);
+
+    return NextResponse.json(
+      { success: true, message: "Message sent successfully." },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Contact API error:", error);
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error occurred";
+    return NextResponse.json(
+      {
+        error: `We could not send your message: ${errorMessage}. Please check your Resend API key and domain verification.`,
+      },
+      { status: 500 }
+    );
+  }
+}
+

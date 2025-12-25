@@ -9,6 +9,7 @@ import TabMenu from "./TabMenu";
 import MobileMenu from "./mobile-menu";
 import { NAVIGATION_ITEMS, TAB_ITEMS } from "./config";
 import { NavItem } from "./types";
+import Image from "next/image";
 
 export default function Navigation() {
   const [userSelectedTab, setUserSelectedTab] = useState<
@@ -98,7 +99,12 @@ export default function Navigation() {
                   isScrolled ? "text-slate-900" : "text-white"
                 }`}
               >
-                CodeCrest
+                <Image
+                  src="/logo.png"
+                  alt="CodeCrest"
+                  width={150}
+                  height={150}
+                />
               </Link>
             </div>
 

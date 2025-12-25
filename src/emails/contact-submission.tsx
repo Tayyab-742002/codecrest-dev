@@ -91,16 +91,16 @@ export function ContactSubmissionEmail({
                         padding: "20px 24px",
                         borderBottom: `1px solid ${colors.borderStrong}`,
                         backgroundColor: "#FFFFFF",
-                      }}
-                    >
-                      <table
-                        width="100%"
-                        cellPadding={0}
-                        cellSpacing={0}
+      }}
+    >
+      <table
+        width="100%"
+        cellPadding={0}
+        cellSpacing={0}
                         role="presentation"
-                      >
-                        <tbody>
-                          <tr>
+      >
+        <tbody>
+          <tr>
                             <td style={{ verticalAlign: "middle" }}>
                               <div
                                 style={{
@@ -112,8 +112,8 @@ export function ContactSubmissionEmail({
                               >
                                 {brandName}
                               </div>
-                              <div
-                                style={{
+              <div
+                style={{
                                   marginTop: "4px",
                                   fontSize: "13px",
                                   color: colors.muted,
@@ -137,10 +137,10 @@ export function ContactSubmissionEmail({
                                   backgroundColor: colors.subtleAccentBg,
                                   color: colors.accent,
                                   border: `1px solid ${colors.borderStrong}`,
-                                  fontSize: "12px",
+                  fontSize: "12px",
                                   fontWeight: 700,
-                                }}
-                              >
+                }}
+              >
                                 New
                               </span>
                             </td>
@@ -153,24 +153,24 @@ export function ContactSubmissionEmail({
                   {/* Body intro */}
                   <tr>
                     <td style={{ padding: "22px 24px 0" }}>
-                      <h1
-                        style={{
+              <h1
+                style={{
                           margin: 0,
                           fontSize: "18px",
                           lineHeight: 1.4,
                           color: colors.text,
-                        }}
-                      >
+                }}
+              >
                         Message from {name}
-                      </h1>
-                      <p
-                        style={{
+              </h1>
+              <p
+                style={{
                           margin: "10px 0 0",
                           fontSize: "14px",
                           lineHeight: 1.7,
                           color: colors.muted,
-                        }}
-                      >
+                }}
+              >
                         Reply directly to this email to respond (Reply-To is set
                         to{" "}
                         <strong style={{ color: colors.text }}>{email}</strong>)
@@ -179,17 +179,17 @@ export function ContactSubmissionEmail({
                           {inboxEmail}
                         </strong>
                         .
-                      </p>
+              </p>
                     </td>
                   </tr>
 
                   {/* Details */}
                   <tr>
                     <td style={{ padding: "16px 24px 0" }}>
-                      <table
-                        width="100%"
-                        cellPadding={0}
-                        cellSpacing={0}
+                <table
+                  width="100%"
+                  cellPadding={0}
+                  cellSpacing={0}
                         role="presentation"
                         style={{
                           width: "100%",
@@ -197,9 +197,9 @@ export function ContactSubmissionEmail({
                           borderRadius: "12px",
                           overflow: "hidden",
                         }}
-                      >
-                        <tbody>
-                          <tr>
+                >
+                  <tbody>
+                    <tr>
                             <td
                               style={{
                                 padding: "12px 14px",
@@ -235,9 +235,9 @@ export function ContactSubmissionEmail({
                               >
                                 {email}
                               </div>
-                            </td>
-                          </tr>
-                          <tr>
+                      </td>
+                    </tr>
+                    <tr>
                             <td
                               style={{
                                 padding: "12px 14px",
@@ -253,19 +253,19 @@ export function ContactSubmissionEmail({
                               >
                                 Inbox
                               </div>
-                              <div
-                                style={{
+                        <div
+                          style={{
                                   fontSize: "13px",
                                   color: colors.text,
                                   wordBreak: "break-word",
-                                }}
-                              >
+                          }}
+                        >
                                 {inboxEmail}
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
                     </td>
                   </tr>
 
@@ -280,16 +280,16 @@ export function ContactSubmissionEmail({
                         }}
                       >
                         <div
-                          style={{
+                style={{
                             padding: "12px 14px",
                             borderBottom: `1px solid ${colors.borderStrong}`,
                             fontSize: "12px",
                             fontWeight: 700,
                             color: colors.muted,
-                            letterSpacing: "0.08em",
-                            textTransform: "uppercase",
-                          }}
-                        >
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                }}
+              >
                           Message
                         </div>
                         <div

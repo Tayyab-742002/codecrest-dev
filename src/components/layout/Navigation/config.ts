@@ -140,12 +140,6 @@ export const TAB_ITEMS: TabItem[] = [
     href: "/about",
     matchPrefixes: ["/about"],
   },
-  {
-    id: 6,
-    title: "Contact",
-    href: "/contact",
-    matchPrefixes: ["/contact"],
-  },
 ];
 
 export const NAVIGATION_ITEMS: NavItem[] = [
