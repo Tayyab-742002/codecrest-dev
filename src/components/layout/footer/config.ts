@@ -11,10 +11,10 @@ export const siteConfig = {
     description:
       "A product studio partnering with ambitious teams to ship AI-native platforms, modernize cloud stacks, and keep critical systems running.",
     location:
-      "Office # 100, 101 Second Floor, Kohinoor 1, Faisalabad, Pakistan",
+      "Italy, Pisa",
     email: CONTACT_EMAIL,
-    phonePrimary: "+92 300 1234567",
-    phoneSecondary: "+92 321 9876543",
+    phonePrimary: "+39 334 232 0631",
+    phoneSecondary: "",
     socials: {
       linkedin: COMPANY_LINKEDIN_URL,
     },

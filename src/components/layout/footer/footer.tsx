@@ -51,9 +51,9 @@ export const focusInput = [
   // base
   "focus:ring-2",
   // ring color
-  "focus:ring-blue-200 ",
+  "focus:ring-purple-200 ",
   // border color
-  "focus:border-blue-500 ",
+  "focus:border-purple-500 ",
 ];
 
 // Tremor Raw focusRing [v0.0.1]
@@ -62,7 +62,7 @@ export const focusRing = [
   // base
   "outline outline-offset-2 outline-0 focus-visible:outline-2",
   // outline color
-  "outline-blue-500 ",
+  "outline-purple-500 ",
 ];
 
 // Tremor Raw hasErrorInput [v0.0.1]
@@ -866,21 +866,18 @@ export const Footer = () => {
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-10 sm:px-6 lg:px-8 md:flex-row md:items-start md:justify-center md:gap-16">
           <div className="flex max-w-xs flex-col items-start justify-start gap-y-5">
             <Link href="/" className="flex items-center gap-2">
-              <Image 
-                src="/logo.png"
-                alt="CodeCrest"
-                width={150}
-                height={150}
-              />
+              <Image src="/logo.png" alt="CodeCrest" width={150} height={150} />
             </Link>
             <p className="tracking-tight text-muted-foreground font-medium">
               {siteConfig.company.description}
             </p>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p className="text-white/80">{siteConfig.company.location}</p>
+              <p className=" text-gray-900/50!">
+                {siteConfig.company.location}
+              </p>
               <a
                 href={`mailto:${siteConfig.company.email}`}
-                className="text-white transition-colors hover:text-blue-300"
+                className="transition-colors hover:text-purple-300 text-gray-900/50!"
               >
                 {siteConfig.company.email}
               </a>
@@ -889,7 +886,7 @@ export const Footer = () => {
                   href={`tel:${formatPhoneHref(
                     siteConfig.company.phonePrimary
                   )}`}
-                  className="transition-colors hover:text-blue-300"
+                  className="transition-colors hover:text-purple-300 text-gray-900/50!"
                 >
                   {siteConfig.company.phonePrimary}
                 </a>
@@ -897,9 +894,9 @@ export const Footer = () => {
                   href={`tel:${formatPhoneHref(
                     siteConfig.company.phoneSecondary
                   )}`}
-                  className="transition-colors hover:text-blue-300"
+                  className="transition-colors hover:text-purple-300 text-gray-900/50!"
                 >
-                  {siteConfig.company.phoneSecondary}
+                  {siteConfig.company.phoneSecondary || ""}
                 </a>
               </div>
             </div>
@@ -930,7 +927,7 @@ export const Footer = () => {
                         <span className="relative">
                           {link.title}
                           <span
-                            className="absolute bottom-0 left-0 w-full h-[1.1px] bg-blue-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out"
+                            className="absolute bottom-0 left-0 w-full h-[1.1px] bg-purple-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ease-out"
                             style={{ willChange: "transform" }}
                           ></span>
                         </span>
@@ -945,8 +942,7 @@ export const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mt-12 flex flex-col items-center justify-center gap-4 border-t border-slate-400/50 py-6 text-center md:flex-row md:gap-6">
             <span className="text-muted-foreground block text-sm">
-              © {new Date().getFullYear()} {siteConfig.company.name}, All
-              rights reserved
+              © 2026 {siteConfig.company.name}, All rights reserved
             </span>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               {socialLinks.map((link) => (
